@@ -689,42 +689,40 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "CAPSLOCK is command if pressed in combination, otherwise ESC",
+        "description" : "Easy modifier keys",
         "manipulators" : [ {
           "to_if_alone" : [ {
             "key_code" : "escape"
           } ],
           "from" : {
-            "key_code" : "caps_lock",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
+            "key_code" : "caps_lock"
           },
           "to" : [ {
             "key_code" : "left_command"
           } ],
-          "type" : "basic"
-        } ]
-      }, {
-        "description" : "Left shift is left shift if pressed in combination, otherwise capslock",
-        "manipulators" : [ {
-          "to_if_alone" : [ {
-            "key_code" : "caps_lock"
+          "conditions" : [ {
+            "name" : "easy-modifiers",
+            "value" : 1,
+            "type" : "variable_if"
           } ],
-          "from" : {
-            "key_code" : "left_shift",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
+          "type" : "basic"
+        }, {
+          "to_if_alone" : [ {
             "key_code" : "left_shift"
           } ],
+          "from" : {
+            "key_code" : "left_shift"
+          },
+          "to" : [ {
+            "key_code" : "caps_lock"
+          } ],
+          "conditions" : [ {
+            "name" : "easy-modifiers",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
           "type" : "basic"
-        } ]
-      }, {
-        "description" : "Quote is command if pressed in combination, otherwise quote",
-        "manipulators" : [ {
+        }, {
           "to_if_alone" : [ {
             "key_code" : "quote"
           } ],
@@ -734,11 +732,13 @@
           "to" : [ {
             "key_code" : "right_command"
           } ],
+          "conditions" : [ {
+            "name" : "easy-modifiers",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
           "type" : "basic"
-        } ]
-      }, {
-        "description" : "Slash is shift if pressed in combination, otherwise slash",
-        "manipulators" : [ {
+        }, {
           "to_if_alone" : [ {
             "key_code" : "slash"
           } ],
@@ -748,11 +748,13 @@
           "to" : [ {
             "key_code" : "right_shift"
           } ],
+          "conditions" : [ {
+            "name" : "easy-modifiers",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
           "type" : "basic"
-        } ]
-      }, {
-        "description" : "Grave accent is shift if pressed in combination, otherwise grave accent",
-        "manipulators" : [ {
+        }, {
           "to_if_alone" : [ {
             "key_code" : "grave_accent_and_tilde"
           } ],
@@ -762,11 +764,13 @@
           "to" : [ {
             "key_code" : "right_shift"
           } ],
+          "conditions" : [ {
+            "name" : "easy-modifiers",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
           "type" : "basic"
-        } ]
-      }, {
-        "description" : "Open bracker is control if pressed in combination, otherwise open bracket",
-        "manipulators" : [ {
+        }, {
           "to_if_alone" : [ {
             "key_code" : "open_bracket"
           } ],
@@ -775,6 +779,11 @@
           },
           "to" : [ {
             "key_code" : "right_control"
+          } ],
+          "conditions" : [ {
+            "name" : "easy-modifiers",
+            "value" : 1,
+            "type" : "variable_if"
           } ],
           "type" : "basic"
         } ]
