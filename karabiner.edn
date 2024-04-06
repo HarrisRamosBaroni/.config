@@ -1,0 +1,281 @@
+{
+
+ :devices {
+           :sculpt-keyboard [{:product_id 1957 :vendor_id 1118}]
+           }
+
+ :simlayers {
+             :f-mode {:key :f}    ; delimeters    ( ) [ ] { } and other symbols ~ $ &
+             :e-mode {:key :e}    ; arithmetic    + - * / = % < > #
+             :a-mode {:key :a}    ; navigation hjkl + tab + enter + page down/up
+             ;
+             :w-mode {:key :w}          ; General shortcuts (browser etc.) - not settled
+             :select-mode {:key :s}     ; Selection left and right (letter, word, line)
+             :delete-mode {:key :d}     ; Deletion left and right (letter, word, line)
+             :num-mode {:key :spacebar} ; number row and symbols
+             ;
+             :g-mode {:key :g}    ; Mouse scroll, desktop left-right, zoom in-out, screenshot (not implemented)
+             ;
+             :v-mode {:key :v}    ; Number pad with + - BS ENTER as well
+             :c-mode {:key :c}    ; Slashes and lines  ^ | \ _ @
+            ;;  :x-mode {:key :x}    ; Some multi-character shortcuts like <= (not implemented)
+             :x-mode {:key :x}    ; Volume and brightness
+             }
+
+ :main [
+
+        {:des "Swap Win and Alt on Sculpt keyboard"
+         :rules [:sculpt-keyboard
+                 [:left_option :left_command]
+                 [:left_command :left_option]
+                 [:right_option :right_command]
+                 [:application :right_option]
+                 ]
+         }
+
+        {:des "CAPSLOCK is command if pressed in combination, otherwise ESC"
+         :rules  [
+            [:##caps_lock        :left_command     nil         {:alone :escape}]
+          ]}
+
+        {:des "Left shift is left shift if pressed in combination, otherwise capslock"
+         :rules  [
+            [:##left_shift        :left_shift     nil         {:alone :caps_lock}]
+          ]}
+        
+        {:des "Quote is command if pressed in combination, otherwise quote"
+          :rules  [
+              [:quote        :right_command     nil         {:alone :quote}]
+            ]}
+        
+        {:des "Slash is shift if pressed in combination, otherwise slash"
+          :rules  [
+              [:slash        :right_shift     nil         {:alone :slash}]
+            ]}
+
+        {:des "Grave accent is shift if pressed in combination, otherwise grave accent"
+          :rules  [
+              [:grave_accent_and_tilde        :right_shift     nil         {:alone :grave_accent_and_tilde}]
+            ]}
+
+        {:des "Open bracker is control if pressed in combination, otherwise open bracket"
+          :rules  [
+              [:open_bracket        :right_control     nil         {:alone :open_bracket}]
+            ]}          
+
+        ;; Prefixes S, O, T, C correspond to Shift, Option, Control, Command. Put them in front of the key
+        ;; to get the modified version. For example, :!SCleft_arrow is Shift+Command+Left arrow.
+        {:des "f-mode for delimeters and ! ? $"   ;;    { } !     ( ) ' "     [ ] $
+         :rules [:f-mode     
+                 [:##u         :!Sopen_bracket]    ; f -> u        {
+                 [:##i         :!Sclose_bracket]   ; f -> i        }
+                 [:##o         :!S1]               ; f -> o        !
+                 [:##p         :backslash]         ; f -> p        \
+
+                 [:##j         :!S9]               ; f -> j        (
+                 [:##k         :!S0]               ; f -> k        )
+                 [:##l         :quote]             ; f -> l        '
+                 [:##semicolon :!Squote]           ; f -> ;        "
+
+                 [:##m         :open_bracket]      ; f -> m        [
+                 [:##comma     :close_bracket]     ; f -> ,        ]
+                 [:##period    :!S4]               ; f -> .        $
+                ]
+         }
+
+        {:des "e-mode for arithmetic"    ;;    < > #    + - = _    * / %
+         :rules [:e-mode
+                  [:##u     :!Scomma]               ; e -> o        <
+                  [:##i     :!Speriod]              ; e -> p        >
+                  [:##o     :!S6]                   ; e -> o        #
+                  [:##p     :!O3]                   ; e -> ;        "
+
+                  [:##j         :!Sequal_sign]      ; e -> j        +
+                  [:##k         :hyphen]            ; e -> k        -
+                  [:##l         :equal_sign]        ; e -> l        =
+                  [:##semicolon :!Shyphen]          ; e -> ;        _
+
+                  [:##m :!S8]                       ; e -> m        *
+                  [:##comma :slash]                 ; e -> ,        /
+                  [:##period :!S5]                  ; e -> .        %
+                ]
+         }
+
+        {:des "delete-mode for deleting characters with ui, words with jk and lines with hl"
+         :rules [:delete-mode
+                  [:##u         :!Cdelete_or_backspace] ; r -> u   Delete line backwards
+                  [:##i         :!Cdelete_forward]      ; r -> i   Delete line fowards
+                  [:##j         :!Odelete_or_backspace] ; r -> j   Delete word backwards
+                  [:##k         :!Odelete_forward]      ; r -> k   Delete word forwards
+                  [:##l         :delete_or_backspace]   ; r -> l   Delete character backwards
+                  [:##semicolon :delete_forward]        ; r -> ;   Delete character forwards
+                  [:##n         :!Cz]                   ; r -> n   Undo
+                  [:##h         :!CSz]                  ; r -> h   Redo
+                  ;; [:##m         :delete_or_backspace]   ; r -> m   Delete character backwards
+                  ;; [:##comma     :delete_forward]        ; r -> ,   Delete character forwards
+                ]
+         }
+
+        {:des "a-mode allows for easy back and forth one character, word or line"
+         :rules [:a-mode
+                  ;; [:##m         :!Cleft_arrow]        ; e -> i    Cmd+Left
+                  ;; [:##comma     :!Cright_arrow]       ; e -> o    Cmd+Right
+                  ;; [:##o         :!Cdown_arrow]        ; e -> i    Cmd+Down
+                  ;; [:##p         :!Cup_arrow]          ; e -> o    Cmd+Up
+                  [:##u         :!Cleft_arrow]        ; e -> i    Cmd+Left
+                  [:##i         :!Cright_arrow]       ; e -> o    Cmd+Right
+                  ;; [:##o         :!Cleft_arrow]        ; e -> i    Cmd+Left
+                  ;; [:##p         :!Cright_arrow]       ; e -> o    Cmd+Right
+                  [:##o         :tab]                 ; e -> o    Tab
+
+                  [:##j         :!Oleft_arrow]        ; e -> j    Opt+Left
+                  [:##k         :!Oright_arrow]       ; e -> k    Opt+Right
+                  [:##l         :left_arrow]          ; e -> l    Left
+                  [:##semicolon :right_arrow]         ; e -> ;    Right
+
+                  [:##n         :return_or_enter]     ; e -> n    Enter
+                  [:##m         :down_arrow]          ; e -> m    Down
+                  [:##comma     :up_arrow]            ; e -> ,    Up
+                  
+                  ;; [:##h         :page_down]           ; e -> h    Page Down (moves cursor in vscode, not in notes)
+                  ;; [:##y         :page_up]             ; e -> y    Page Up (moves cursor in vscode, not in notes)
+                  [:##h         [:page_down :!Tl]]    ; e -> h    Page Down and centre cursor (works in vscode, not notes)
+                  [:##y         [:page_up :!Tl]]      ; e -> y    Page Up and centre cursor (works in vscode, not notes)
+                  [:##period         :!Tl]            ; e -> .    Center cursor
+                  
+                  ;; [:##h         [:!Opage_down :!Tl]]           ; e -> h    Page Down and centre cursor (works in notes, not vscode)
+                  ;; [:##y         [:!Opage_up :!Tl]]             ; e -> y    Page Up and centre cursor (works in notes, not vscode)
+                  ;; [:##h         :!OFdown_arrow]       ; e -> h    Page Down and centre cursor (works in notes, not vscode)
+                  ;; [:##y         :!OFup_arrow]         ; e -> y    Page Up and centre cursor (works in notes, not vscode)
+                  ;; [:##h         [:!OFdown_arrow :!Tl]  :a-mode]  ; e -> h    Page Down and centre cursor (works in notes, not vscode)
+                  ;; [:##y         [:!OFup_arrow :!Tl]    :a-mode]  ; e -> y    Page Up and centre cursor (works in notes, not vscode)
+                ]
+         }
+
+        {:des "select-mode = a-mode + SHIFT (i.e. selection, not just movement)"
+         :rules [:select-mode
+                  [:##u         :!SCleft_arrow]       ; e -> u    Shift+Cmd+Left
+                  [:##i         :!SCright_arrow]      ; e -> i    Shift+Cmd+Right
+                  [:##o         :!Sdown_arrow]        ; e -> i    Shift+Down
+                  [:##p         :!Sup_arrow]          ; e -> o    Shift+Up
+                  [:##h         :!OCdown_arrow]       ; e -> h    Add cursor below
+                  [:##j         :!SOleft_arrow]       ; e -> j    Shift+Opt+Left
+                  [:##k         :!SOright_arrow]      ; e -> k    Shift+Opt+Right
+                  [:##l         :!Sleft_arrow]        ; e -> l    Shift+Left
+                  [:##semicolon :!Sright_arrow]       ; e -> ;    Shift+Right
+                  [:##n         :!Cx]                 ; e -> n    Cut
+                  [:##m         :!Cc]                 ; e -> m    Copy
+                  [:##comma     :!Cv]                 ; e -> ,    Paste
+                ]
+         }
+
+        {:des "w-mode for general shortcuts like browser tab navigation"
+         :rules [:w-mode
+                  [:##j :!CSopen_bracket]  ; w -> j    tab to the left:       Cmd+{
+                  [:##k :!CSclose_bracket] ; w -> k    tab to the right:      Cmd+}
+                  [:##l :!Ctab          ]  ; w -> l    change app:            Cmd+Tab
+                  [:##semicolon :!Cgrave_accent_and_tilde]  ; w -> ;    change window: Cmd+`
+                  [:##o :!CTf]             ; w -> o    Full-screen mode
+                  ;; [:##u :!Copen_bracket]   ; w -> u    browser back:          Cmd+[
+                  ;; [:##i :!Cclose_bracket]  ; w -> i    browser forward:       Cmd+]
+                  [:##u :!Tleft_arrow]     ; w -> u    desktop left:          Cmd+[
+                  [:##i :!Tright_arrow]    ; w -> i    desktop right:         Cmd+]
+                  [:##n :!CSn]             ; w -> n    open private tab:      Cmd+shift-m
+                  [:##m :!CSm]             ; w -> m    switch brave profile:  Cmd+shift-m
+                  ;; [:##o :!Ctab          ]  ; w -> o    change app:         Cmd+Tab
+                ]
+         }
+
+
+        {:des "num-mode for numbers on home row, and symbols"
+         :rules [:num-mode
+                  [:a :1]
+                  [:s :2]
+                  [:d :3]
+                  [:f :4]
+                  [:g :5]
+                  [:h :6]
+                  [:j :7]
+                  [:k :8]
+                  [:l :9]
+                  [:semicolon :0]
+                  [:u :!Sequal_sign]
+                  [:i :hyphen]
+                  [:n :return_or_enter]
+                  [:m :delete_or_backspace]
+                ]
+         }
+
+        {:des "v-mode for number pad"
+         :rules [:v-mode
+                 [:u :7]
+                 [:i :8]
+                 [:o :9]
+                 [:j :4]
+                 [:k :5]
+                 [:l :6]
+                 [:m :1]
+                 [:comma :2]
+                 [:period :3]
+                 [:p :!Sequal_sign]
+                 [:semicolon :hyphen]
+                 [:slash :return_or_enter]
+                 [:y :delete_or_backspace]
+                 [:h :period]
+                 [:n :0]
+                ]
+        }
+
+        {:des "c-mode for remaining symbols ^ | \\ _ @"
+         :rules [:c-mode
+                 [:##u :!S6]
+                 [:##j :!Sbackslash]
+                 [:##k :!S2]
+                 [:##m :backslash]
+                 [:##comma :!Shyphen]
+                ]
+        }
+
+        {:des "x-mode for volume and brightness"
+         :rules [:x-mode
+                 [:##u :display_brightness_decrement] ; z -> j   Mute volume
+                 [:##i :display_brightness_increment]  ; z -> k   Increase brightness
+                 [:##j :volume_decrement] ; z -> u   Increase volume
+                 [:##k :volume_increment] ; z -> i   Decrease volume
+                 [:##m :mute]  ; z -> m   Mute volume
+                ]
+        }
+
+        #_{:des "x-mode for some programming pairs like <= (not yet implemented)"
+         :rules [:x-mode
+                ]
+        }
+
+        #_{:des "g-mode for mouse scroll, desktop left-right, zoom in-out, screenshot"
+         :rules [:g-mode
+                ]
+        }
+
+        ;; Using keys for CTRL etc (home-row-mods) isn't practical with plain Karabiner.
+        ;; Some changes to timeout settings would be required, and the documentation is 
+        ;; not clear enough.
+        #_{:des "Convenient CTRL (T,Y) and COMMAND (G,H)"
+         :rules  [
+            [:##t        :left_control     nil         {:alone :t}]
+            [:##y        :left_control     nil         {:alone :y}]
+            [:##g        :left_command     nil         {:alone :g}]
+            [:##h        :left_command     nil         {:alone :h}]
+          ]}
+
+        ;; {:des "g is command if pressed in combination, otherwise g"
+        ;;   :rules  [
+        ;;       [:g        :left_command     nil         {:alone :g}]
+        ;;     ]}
+
+        ;; {:des "h is command if pressed in combination, otherwise h"
+        ;;   :rules  [
+        ;;       [:h        :right_command     nil         {:alone :h}]
+        ;;     ]}
+
+ ]
+}
