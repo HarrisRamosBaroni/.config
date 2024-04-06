@@ -318,3 +318,46 @@
 
  ]
 }
+
+;; rule [:period ["media-mode" 1] nil {:afterup ["media-mode" 0] :alone :period}]
+;;       |_____| |_______________| |_| |_________________________________________|
+;;        <from>    <to>      <conditions>         <other options>
+;;
+;; !  | means mandatory -   modifier(s) alone when pressend change behavior
+;; #  | means optional  -   modifiers are optional (but atleast one necessary)
+;;
+;; :!Ca is keycode :a and prefix a with !C
+;;
+;; C  | left_command
+;; T  | left_control
+;; O  | left_option
+;; S  | left_shift
+;; F  | fn
+;; Q  | right_command
+;; W  | right_control
+;; E  | right_option
+;; R  | right_shift
+;; P  | caps_lock
+;;
+;; ## | optional any (this has no effect when used on the RHS; only LHS)
+;; !! | command + control + option + shift (hyper)
+;;
+;; to understand better how modifiers work in karabiner
+;; karabiner definition of mandatory and optional
+;; https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/from/modifiers/
+;;
+;; need to prefix C T O S F P with ! or #
+;;
+;; code for all this:
+;; https://github.com/yqrashawn/GokuRakuJoudo/blob/b9b334a187379f9bc8182ad59e2cca2a1789e9c0/src/karabiner_configurator/keys.clj#L68 
+;;
+;;
+;; list of keys usable in Karabiner
+;; https://github.com/pqrs-org/Karabiner-Elements/issues/925#issuecomment-323984568
+;;
+;; Sample mouse event remapping
+;; Could be used in a layer. Intercepting events from mice interferes with the scrollwheel.
+;; [{:pkey :button2} :delete_forward]
+;;
+;;
+;; URL of extend layer - https://forum.colemak.com/topic/2014-extend-extra-extreme/
