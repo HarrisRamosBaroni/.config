@@ -102,8 +102,8 @@
                  [:##slash :right_shift nil {:alone :slash}] ; Slash is shift if pressed in combination
                  [:##grave_accent_and_tilde :right_shift nil {:alone :grave_accent_and_tilde}] ; Grave accent is shift if pressed in combination
                  [:##open_bracket :right_control nil {:alone :open_bracket}] ; Open bracket is control if pressed in combination
-                 [:##g nil nil {:alone :g :held :left_command :lazy true :params{:held 150}}] ; g is command if pressed in combination
-                 [:##h nil nil {:alone :h :held :left_command :lazy true :params{:held 150}}] ; h is command if pressed in combination
+                ;;  [:##g nil nil {:alone :g :held :left_command :lazy true :params{:held 150}}] ; g is command if pressed in combination
+                ;;  [:##h nil nil {:alone :h :held :left_command :lazy true :params{:held 150}}] ; h is command if pressed in combination
                 ;;  [:##h :h nil {:held :right_command}] ; h is command if pressed in combination 
                 ;;  [:##g :left_shift nil {:delayed {:invoked :g :canceled :left_shift}}] ; g is shift if pressed in combination
                 ;;  [:##h :right_shift nil {:delayed {:invoked :h :canceled :right_shift}}] ; h is shift if pressed in combination
