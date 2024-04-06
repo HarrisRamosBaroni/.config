@@ -623,7 +623,7 @@
         "basic.simultaneous_threshold_milliseconds" : 50,
         "basic.to_delayed_action_delay_milliseconds" : 500,
         "basic.to_if_alone_timeout_milliseconds" : 1000,
-        "basic.to_if_held_down_threshold_milliseconds" : 500
+        "basic.to_if_held_down_threshold_milliseconds" : 1000
       },
       "rules" : [ {
         "description" : "Press right_shift twice to enter double shift mode, press right_shift once to leave it",
@@ -1026,6 +1026,40 @@
           "to" : [ {
             "key_code" : "right_control"
           } ],
+          "type" : "basic"
+        }, {
+          "to_if_alone" : [ {
+            "key_code" : "g"
+          } ],
+          "to_if_held_down" : [ {
+            "key_code" : "left_command"
+          } ],
+          "parameters" : {
+            "basic.to_if_held_down_threshold_milliseconds" : 150
+          },
+          "from" : {
+            "key_code" : "g",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "type" : "basic"
+        }, {
+          "to_if_alone" : [ {
+            "key_code" : "h"
+          } ],
+          "to_if_held_down" : [ {
+            "key_code" : "left_command"
+          } ],
+          "parameters" : {
+            "basic.to_if_held_down_threshold_milliseconds" : 150
+          },
+          "from" : {
+            "key_code" : "h",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
           "type" : "basic"
         } ]
       }, {

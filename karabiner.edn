@@ -1,4 +1,17 @@
-{
+{:profiles {:Default {:default true
+                      ;; simultaneous_threshold_milliseconds (def: 50)
+                      ;; keys need to be pressed within this threshold to be considered simultaneous
+                      :sim     50
+                      ;; to_delayed_action_delay_milliseconds (def: 500)
+                      ;; basically it means time after which the key press is count delayed
+                      :delay   500
+                      ;; to_if_alone_timeout_milliseconds (def: 1000)
+                      ;; hold for 995s and single tap registered; hold for 1005s and seen as modifier
+                      :alone   1000
+                      ;; to_if_held_down_threshold_milliseconds (def: 500)
+                      ;; key is fired twice when 500 ms is elapsed (otherwise seen as a hold command)
+                      ;; increase this value to allow you to hold a simlayer key longer before the next key is pressed
+                      :held    1000}}
 
  :devices {
            :sculpt-keyboard [{:product_id 1957 :vendor_id 1118}]
@@ -27,16 +40,16 @@
         ;; each manipulator has a description and multiple rules
 
         ;;{:des "..."                                       ;; -> description
-        ;; :rules[[:condi <conditions>]
-        ;;          [<from>  <to>  <conditions>]            ;; -> rule 1
-        ;;          [<from>  <to>  <conditions>]            ;; -> rule 2
+        ;; :rules[[:condi <conditions which apply to all rules below>]
+        ;;          [<from>  <to>  <conditions which apply to this rule>]            ;; -> rule 1
+        ;;          [<from>  <to>  <conditions which apply to this rule>]            ;; -> rule 2
         ;; ]}
 
         ;; or
         ;;{:des "..."                                       ;; -> description
-        ;; :rules[<condition>
-        ;;          [<from>  <to>  <conditions>]            ;; -> rule 1
-        ;;          [<from>  <to>  <conditions>]            ;; -> rule 2
+        ;; :rules[<condition which applies to all rules below>
+        ;;          [<from>  <to>  <conditions which apply to this rule>]            ;; -> rule 1
+        ;;          [<from>  <to>  <conditions which apply to this rule>]            ;; -> rule 2
         ;; ]}
         ;; if there is only one condition
     
@@ -89,8 +102,11 @@
                  [:##slash :right_shift nil {:alone :slash}] ; Slash is shift if pressed in combination
                  [:##grave_accent_and_tilde :right_shift nil {:alone :grave_accent_and_tilde}] ; Grave accent is shift if pressed in combination
                  [:##open_bracket :right_control nil {:alone :open_bracket}] ; Open bracket is control if pressed in combination
-                ;;  [:##g :left_command nil {:alone :g}] ; g is command if pressed in combination
-                ;;  [:##h :right_command nil {:alone :h}] ; h is command if pressed in combination  
+                 [:##g nil nil {:alone :g :held :left_command :lazy true :params{:held 150}}] ; g is command if pressed in combination
+                 [:##h nil nil {:alone :h :held :left_command :lazy true :params{:held 150}}] ; h is command if pressed in combination
+                ;;  [:##h :h nil {:held :right_command}] ; h is command if pressed in combination 
+                ;;  [:##g :left_shift nil {:delayed {:invoked :g :canceled :left_shift}}] ; g is shift if pressed in combination
+                ;;  [:##h :right_shift nil {:delayed {:invoked :h :canceled :right_shift}}] ; h is shift if pressed in combination
                  ]
          }     
 
