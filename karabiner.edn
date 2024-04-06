@@ -33,35 +33,16 @@
                  ]
          }
 
-        {:des "CAPSLOCK is command if pressed in combination, otherwise ESC"
-         :rules  [
-            [:##caps_lock        :left_command     nil         {:alone :escape}]
-          ]}
-
-        {:des "Left shift is left shift if pressed in combination, otherwise capslock"
-         :rules  [
-            [:##left_shift        :left_shift     nil         {:alone :caps_lock}]
-          ]}
-        
-        {:des "Quote is command if pressed in combination, otherwise quote"
-          :rules  [
-              [:quote        :right_command     nil         {:alone :quote}]
-            ]}
-        
-        {:des "Slash is shift if pressed in combination, otherwise slash"
-          :rules  [
-              [:slash        :right_shift     nil         {:alone :slash}]
-            ]}
-
-        {:des "Grave accent is shift if pressed in combination, otherwise grave accent"
-          :rules  [
-              [:grave_accent_and_tilde        :right_shift     nil         {:alone :grave_accent_and_tilde}]
-            ]}
-
-        {:des "Open bracker is control if pressed in combination, otherwise open bracket"
-          :rules  [
-              [:open_bracket        :right_control     nil         {:alone :open_bracket}]
-            ]}          
+        {:des "Easy modifier keys"
+         :rules [:easy-modifiers
+                 [:caps_lock :left_command nil {:alone :escape}] ; CAPSLOCK is ESC if pressed alone
+                 [:left_shift :caps_lock nile {:alone :left_shift}] ; Left shift is CAPSLOCK if pressed alone
+                 [:quote :right_command nil {:alone :quote}] ; Quote is command if pressed in combination
+                 [:slash :right_shift nil {:alone :slash}] ; Slash is shift if pressed in combination
+                 [:grave_accent_and_tilde :right_shift nil {:alone :grave_accent_and_tilde}] ; Grave accent is shift if pressed in combination
+                 [:open_bracket :right_control nil {:alone :open_bracket}] ; Open bracket is control if pressed in combination
+                 ]
+         }     
 
         ;; Prefixes S, O, T, C correspond to Shift, Option, Control, Command. Put them in front of the key
         ;; to get the modified version. For example, :!SCleft_arrow is Shift+Command+Left arrow.
