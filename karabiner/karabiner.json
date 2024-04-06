@@ -1027,40 +1027,6 @@
             "key_code" : "right_control"
           } ],
           "type" : "basic"
-        }, {
-          "to_if_alone" : [ {
-            "key_code" : "g"
-          } ],
-          "to_if_held_down" : [ {
-            "key_code" : "left_command"
-          } ],
-          "parameters" : {
-            "basic.to_if_held_down_threshold_milliseconds" : 150
-          },
-          "from" : {
-            "key_code" : "g",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "type" : "basic"
-        }, {
-          "to_if_alone" : [ {
-            "key_code" : "h"
-          } ],
-          "to_if_held_down" : [ {
-            "key_code" : "left_command"
-          } ],
-          "parameters" : {
-            "basic.to_if_held_down_threshold_milliseconds" : 150
-          },
-          "from" : {
-            "key_code" : "h",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "type" : "basic"
         } ]
       }, {
         "description" : "f-mode for delimeters and ! ? $",
