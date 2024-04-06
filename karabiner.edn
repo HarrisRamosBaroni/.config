@@ -31,11 +31,46 @@
         ;;          [<from>  <to>  <conditions>]            ;; -> rule 1
         ;;          [<from>  <to>  <conditions>]            ;; -> rule 2
         ;; ]}
+
+        ;; or
+        ;;{:des "..."                                       ;; -> description
+        ;; :rules[<condition>
+        ;;          [<from>  <to>  <conditions>]            ;; -> rule 1
+        ;;          [<from>  <to>  <conditions>]            ;; -> rule 2
+        ;; ]}
+        ;; if there is only one condition
     
         ;; rule [:period ["period-mode" 1] nil {:afterup ["period-mode" 0] :alone :period}]
         ;;       |_____| |_______________| |_| |_________________________________________|
         ;;        <from>    <to>      <conditions>         <other options>
         ;;                                ^^^ "nil" in the <conditions> means "no condition"
+
+        {:des   "Press right_shift twice to enter double shift mode, press right_shift once to leave it"
+         :rules [[:right_shift ["double-right-shift-mode" 1] ["shift-pressed-once" 1]]
+                 [:right_shift [:right_shift ["shift-pressed-once" 1]] ["double-right-shift-mode" 0] {:delayed {:invoked ["shift-pressed-once" 0] :canceled ["shift-pressed-once" 0]}}]
+                 :double-right-shift-mode
+                 [:right_shift ["double-right-shift-mode" 0]]
+                ]
+        }
+
+        {:des "alternative num-mode for numbers on home row, and symbols"
+         :rules [:double-right-shift-mode
+                  [:a :1]
+                  [:s :2]
+                  [:d :3]
+                  [:f :4]
+                  [:g :5]
+                  [:h :6]
+                  [:j :7]
+                  [:k :8]
+                  [:l :9]
+                  [:semicolon :0]
+                  [:u :!Sequal_sign]
+                  [:i :hyphen]
+                  [:n :return_or_enter]
+                  [:m :delete_or_backspace]
+                ]
+         }
 
         {:des "Swap Win and Alt on Sculpt keyboard"
          :rules [:sculpt-keyboard

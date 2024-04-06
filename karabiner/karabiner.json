@@ -626,6 +626,259 @@
         "basic.to_if_held_down_threshold_milliseconds" : 500
       },
       "rules" : [ {
+        "description" : "Press right_shift twice to enter double shift mode, press right_shift once to leave it",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "right_shift"
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "double-right-shift-mode",
+              "value" : 1
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "shift-pressed-once",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "to_delayed_action" : {
+            "to_if_invoked" : [ {
+              "set_variable" : {
+                "name" : "shift-pressed-once",
+                "value" : 0
+              }
+            } ],
+            "to_if_canceled" : [ {
+              "set_variable" : {
+                "name" : "shift-pressed-once",
+                "value" : 0
+              }
+            } ]
+          },
+          "from" : {
+            "key_code" : "right_shift"
+          },
+          "to" : [ {
+            "key_code" : "right_shift"
+          }, {
+            "set_variable" : {
+              "name" : "shift-pressed-once",
+              "value" : 1
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "right_shift"
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "double-right-shift-mode",
+              "value" : 0
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "alternative num-mode for numbers on home row, and symbols",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "a"
+          },
+          "to" : [ {
+            "key_code" : "1"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "s"
+          },
+          "to" : [ {
+            "key_code" : "2"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "d"
+          },
+          "to" : [ {
+            "key_code" : "3"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "f"
+          },
+          "to" : [ {
+            "key_code" : "4"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "g"
+          },
+          "to" : [ {
+            "key_code" : "5"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "h"
+          },
+          "to" : [ {
+            "key_code" : "6"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "key_code" : "7"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "key_code" : "8"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "l"
+          },
+          "to" : [ {
+            "key_code" : "9"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "semicolon"
+          },
+          "to" : [ {
+            "key_code" : "0"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "u"
+          },
+          "to" : [ {
+            "key_code" : "equal_sign",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "i"
+          },
+          "to" : [ {
+            "key_code" : "hyphen"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "n"
+          },
+          "to" : [ {
+            "key_code" : "return_or_enter"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "m"
+          },
+          "to" : [ {
+            "key_code" : "delete_or_backspace"
+          } ],
+          "conditions" : [ {
+            "name" : "double-right-shift-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
         "description" : "Swap Win and Alt on Sculpt keyboard",
         "manipulators" : [ {
           "from" : {
