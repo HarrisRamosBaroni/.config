@@ -6,7 +6,8 @@
                       ;; basically it means time after which the key press is count delayed
                       :delay   500
                       ;; to_if_alone_timeout_milliseconds (def: 1000)
-                      ;; hold for 995s and single tap registered; hold for 1005s and seen as modifier
+                      ;; hold for 995s and single tap registered; hold for 1005s and the to_if_alone event is canceled ("timed out"):
+                      ;; https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/to-if-alone/
                       :alone   1000
                       ;; to_if_held_down_threshold_milliseconds (def: 500)
                       ;; key is fired twice when 500 ms is elapsed (otherwise seen as a hold command)
@@ -102,7 +103,7 @@
                  [:##slash :right_shift nil {:alone :slash}] ; Slash is shift if pressed in combination
                  [:##grave_accent_and_tilde :right_shift nil {:alone :grave_accent_and_tilde}] ; Grave accent is shift if pressed in combination
                  [:##open_bracket :right_control nil {:alone :open_bracket}] ; Open bracket is control if pressed in combination
-                ;;  [:##g nil nil {:alone :g :held :left_command :lazy true :params{:held 150}}] ; g is command if pressed in combination
+                ;;  [:##g nil nil {:afterup :g :held :halt true :left_command params{:held 500}}] ; g is command if pressed in combination
                 ;;  [:##h nil nil {:alone :h :held :left_command :lazy true :params{:held 150}}] ; h is command if pressed in combination
                 ;;  [:##h :h nil {:held :right_command}] ; h is command if pressed in combination 
                 ;;  [:##g :left_shift nil {:delayed {:invoked :g :canceled :left_shift}}] ; g is shift if pressed in combination
@@ -300,6 +301,7 @@
 
         #_{:des "g-mode for mouse scroll, desktop left-right, zoom in-out, screenshot"
          :rules [:g-mode
+                 [:##g :left_command]
                 ]
         }
 
