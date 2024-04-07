@@ -68,10 +68,10 @@
                  [[:s :a] :left_option] 
                  [[:f :a] :left_control] 
 
-                 [[:f :d :s] :!Sleft_command nil {:params {:simultaneous_threshold_milliseconds 100}}]             ; fds -> shift + command
-                 [[:f :d :a] :!Sleft_option nil {:params {:simultaneous_threshold_milliseconds 100}}]              ; fda -> shift + option
-                 [[:f :s :a] :!Sleft_control nil {:params {:simultaneous_threshold_milliseconds 100}}]             ; fsa -> shift + control
-                 [[:d :s :a] :!Cleft_option nil {:params {:simultaneous_threshold_milliseconds 100}}]              ; dsa -> command + option
+                 [[:f :d :s] :!Sleft_command nil {:params {:simultaneous_threshold_milliseconds 200}}]             ; fds -> shift + command
+                 [[:f :d :a] :!Sleft_option nil {:params {:simultaneous_threshold_milliseconds 200}}]              ; fda -> shift + option
+                 [[:f :s :a] :!Sleft_control nil {:params {:simultaneous_threshold_milliseconds 200}}]             ; fsa -> shift + control
+                 [[:d :s :a] :!Cleft_option nil {:params {:simultaneous_threshold_milliseconds 200}}]              ; dsa -> command + option
                  [[:e :r] :!Cleft_control]                                                                         ; er -> command + control
 
                  [[:j :k] :right_shift] 
@@ -79,10 +79,10 @@
                  [[:l :semicolon] :right_option] 
                  [[:j :semicolon] :right_control] 
 
-                 [[:j :k :l] :!Sright_command nil {:params {:simultaneous_threshold_milliseconds 100}}]            ; jkl -> shift + command
-                 [[:j :k :semicolon] :!Sright_option nil {:params {:simultaneous_threshold_milliseconds 100}}]     ; jk; -> shift + option
-                 [[:j :l :semicolon] :!Sright_control nil {:params {:simultaneous_threshold_milliseconds 100}}]    ; jl; -> shift + control
-                 [[:k :l :semicolon] :!Cright_option nil {:params {:simultaneous_threshold_milliseconds 100}}]     ; kl; -> command + option
+                 [[:j :k :l] :!Sright_command nil {:params {:simultaneous_threshold_milliseconds 200}}]            ; jkl -> shift + command
+                 [[:j :k :semicolon] :!Sright_option nil {:params {:simultaneous_threshold_milliseconds 200}}]     ; jk; -> shift + option
+                 [[:j :l :semicolon] :!Sright_control nil {:params {:simultaneous_threshold_milliseconds 200}}]    ; jl; -> shift + control
+                 [[:k :l :semicolon] :!Cright_option nil {:params {:simultaneous_threshold_milliseconds 200}}]     ; kl; -> command + option
                  [[:u :i] :!Cright_control]                                                                        ; ui  -> command + control
                 ]}     
 
