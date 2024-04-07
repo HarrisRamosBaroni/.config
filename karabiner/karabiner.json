@@ -1793,6 +1793,56 @@
               } ]
             }
           }
+        }, {
+          "from" : {
+            "key_code" : "slash",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "7",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "fencing-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "fencing-mode",
+              "value" : 1
+            }
+          }, {
+            "key_code" : "7",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "f"
+            }, {
+              "key_code" : "slash"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "fencing-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         } ]
       }, {
         "description" : "equations-mode for arithmetic",
@@ -2102,7 +2152,8 @@
             }
           },
           "to" : [ {
-            "key_code" : "equal_sign"
+            "key_code" : "hyphen",
+            "modifiers" : [ "left_shift" ]
           } ],
           "conditions" : [ {
             "name" : "equations-mode",
@@ -2121,7 +2172,8 @@
               "value" : 1
             }
           }, {
-            "key_code" : "equal_sign"
+            "key_code" : "hyphen",
+            "modifiers" : [ "left_shift" ]
           } ],
           "from" : {
             "simultaneous" : [ {
@@ -2150,8 +2202,7 @@
             }
           },
           "to" : [ {
-            "key_code" : "hyphen",
-            "modifiers" : [ "left_shift" ]
+            "key_code" : "equal_sign"
           } ],
           "conditions" : [ {
             "name" : "equations-mode",
@@ -2170,8 +2221,7 @@
               "value" : 1
             }
           }, {
-            "key_code" : "hyphen",
-            "modifiers" : [ "left_shift" ]
+            "key_code" : "equal_sign"
           } ],
           "from" : {
             "simultaneous" : [ {
@@ -3577,6 +3627,56 @@
               "key_code" : "s"
             }, {
               "key_code" : "p"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "select-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "y",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "up_arrow",
+            "modifiers" : [ "left_command", "left_option" ]
+          } ],
+          "conditions" : [ {
+            "name" : "select-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "select-mode",
+              "value" : 1
+            }
+          }, {
+            "key_code" : "up_arrow",
+            "modifiers" : [ "left_command", "left_option" ]
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "s"
+            }, {
+              "key_code" : "y"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : true,
