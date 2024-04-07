@@ -207,7 +207,8 @@
                   [:##n         :!Cx]                 ; n  ->  Cut
                   [:##m         :!Cc]                 ; m  ->  Copy
                   [:##comma     :!Cv]                 ; ,  ->  Paste
-                  [:##period    :!COv]                ; .  ->  Move file to current directory (after copying file)
+                  [:##period    :!COc]                ; .  ->  Copy path directory
+                  [:##slash     :!COv]                ; /  ->  Move (paste) file to current directory (after copying file)
                 ]}
 
         {:des "w-mode for general shortcuts like browser tab navigation"
