@@ -155,6 +155,7 @@
                   [:##semicolon :delete_forward]        ; ;  ->  Delete character forwards
                   [:##n         :!Cz]                   ; n  ->  Undo
                   [:##h         :!CSz]                  ; h  ->  Redo
+                  [:##m         :!Cdelete_or_backspace] ; m  ->  move file to trash
                   ;; [:##m         :delete_or_backspace]   ; m  ->  Delete character backwards
                   ;; [:##comma     :delete_forward]        ; ,  ->  Delete character forwards
                 ]}
