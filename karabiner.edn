@@ -61,11 +61,11 @@
 
         {:des "Easy modifier keys and other combos"
          :rules [
-                 [[:w :e] :escape]              ; pick the best
+                ;;  [[:w :e] :escape]              ; pick the best
                  [[:x :c] :escape]             ; pick the best
-                 [[:c :v] :escape]              ; pick the best
-                 [[:m :comma] :return_or_enter]         ; pick the best
-                 [[:comma :period] :return_or_enter]    ; pick the best
+                ;;  [[:c :v] :escape]              ; pick the best
+                ;;  [[:m :comma] :return_or_enter]         ; pick the best
+                ;;  [[:comma :period] :return_or_enter]    ; pick the best
 
                  ;; Left hand homerow mods
                  [[:f :d] :left_shift]     ; _ _ O O      -> shift
