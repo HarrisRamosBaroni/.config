@@ -61,29 +61,53 @@
 
         {:des "Easy modifier keys and other combos"
          :rules [
-                 [[:w :e] :escape] 
-                 [[:i :o] :return_or_enter]
-                 [[:f :d] :left_shift] 
-                 [[:d :s] :left_command] 
-                 [[:s :a] :left_option] 
-                 [[:f :a] :left_control] 
+                 [[:w :e] :escape]              ; pick the best
+                 [[:x :c] :escape]             ; pick the best
+                 [[:c :v] :escape]              ; pick the best
+                 [[:m :comma] :return_or_enter]         ; pick the best
+                 [[:comma :period] :return_or_enter]    ; pick the best
 
-                 [[:f :d :s] :!Sleft_command nil {:params {:simultaneous_threshold_milliseconds 200}}]             ; fds -> shift + command
-                 [[:f :d :a] :!Sleft_option nil {:params {:simultaneous_threshold_milliseconds 200}}]              ; fda -> shift + option
-                 [[:f :s :a] :!Sleft_control nil {:params {:simultaneous_threshold_milliseconds 200}}]             ; fsa -> shift + control
-                 [[:d :s :a] :!Cleft_option nil {:params {:simultaneous_threshold_milliseconds 200}}]              ; dsa -> command + option
-                 [[:e :r] :!Cleft_control]                                                                         ; er -> command + control
+                 ;; Left hand homerow mods
+                 [[:f :d] :left_shift]     ; _ _ O O      -> shift
+                 [[:d :s] :left_command]   ; _ O O _      -> command
+                 [[:s :a] :left_option]    ; O O _ _      -> option
+                 [[:f :a] :left_control]   ; O _ _ O      -> control
 
-                 [[:j :k] :right_shift] 
-                 [[:k :l] :right_command] 
-                 [[:l :semicolon] :right_option] 
-                 [[:j :semicolon] :right_control] 
+                 [[:f :s] :!Cleft_shift]   ; _ O _ O      -> cmd + shift
+                 [[:d :a] :!Cleft_option]  ; O _ O _      -> cmd + opt
+                 [[:g :d] :!Cleft_control] ; _ _ O _ O    -> cmd + ctrl
+                 [[:g :s] :!Sleft_option]  ; _ O _ _ O    -> shift + opt      
+                 [[:g :a] :!Sleft_control] ; O _ _ _ O    -> shift + ctrl            
 
-                 [[:j :k :l] :!Sright_command nil {:params {:simultaneous_threshold_milliseconds 200}}]            ; jkl -> shift + command
-                 [[:j :k :semicolon] :!Sright_option nil {:params {:simultaneous_threshold_milliseconds 200}}]     ; jk; -> shift + option
-                 [[:j :l :semicolon] :!Sright_control nil {:params {:simultaneous_threshold_milliseconds 200}}]    ; jl; -> shift + control
-                 [[:k :l :semicolon] :!Cright_option nil {:params {:simultaneous_threshold_milliseconds 200}}]     ; kl; -> command + option
-                 [[:u :i] :!Cright_control]                                                                        ; ui  -> command + control
+                ;;  [[:g :d] :!Sleft_command]                        
+                ;;  [[:g :s] :!Sleft_option]                        
+                ;;  [[:g :a] :!Sleft_control]                        
+                ;;  [[:f :s] :!Cleft_option]                        
+                ;;  [[:d :a] :!Cleft_control]                        
+                
+                ;;  [[:f :d :s] :!Sleft_command nil {:params {:simultaneous_threshold_milliseconds 200}}]             ; fds -> shift + command
+                ;;  [[:f :d :a] :!Sleft_option nil {:params {:simultaneous_threshold_milliseconds 200}}]              ; fda -> shift + option
+                ;;  [[:f :s :a] :!Sleft_control nil {:params {:simultaneous_threshold_milliseconds 200}}]             ; fsa -> shift + control
+                ;;  [[:d :s :a] :!Cleft_option nil {:params {:simultaneous_threshold_milliseconds 200}}]              ; dsa -> command + option
+                ;;  [[:e :r] :!Cleft_control]                                                                         ; er -> command + control
+
+                 ;; Right hand homerow mods
+                 [[:j :k] :right_shift]             ; O O _ _      -> shift 
+                 [[:k :l] :right_command]           ; _ O O _      -> command
+                 [[:l :semicolon] :right_option]    ; _ _ O O      -> option
+                 [[:j :semicolon] :right_control]   ; O _ _ O      -> control
+
+                 [[:j :l] :!Cright_shift]           ;   O _ O _    -> cmd + shift
+                 [[:k :semicolon] :!Cright_option]  ;   _ O _ O    -> cmd + opt
+                 [[:h :k] :!Cright_control]         ; O _ O _ _    -> cmd + ctrl
+                 [[:h :l] :!Sright_option]          ; O _ _ O _    -> shift + opt
+                 [[:h :semicolon] :!Sright_control] ; O _ _ _ O    -> shift + ctrl
+
+                ;;  [[:j :k :l] :!Sright_command nil {:params {:simultaneous_threshold_milliseconds 200}}]            ; jkl -> shift + command
+                ;;  [[:j :k :semicolon] :!Sright_option nil {:params {:simultaneous_threshold_milliseconds 200}}]     ; jk; -> shift + option
+                ;;  [[:j :l :semicolon] :!Sright_control nil {:params {:simultaneous_threshold_milliseconds 200}}]    ; jl; -> shift + control
+                ;;  [[:k :l :semicolon] :!Cright_option nil {:params {:simultaneous_threshold_milliseconds 200}}]     ; kl; -> command + option
+                ;;  [[:u :i] :!Cright_control]                                                                        ; ui  -> command + control
                 ]}     
 
         {:des "fencing-mode for delimeters and ! ? $"   ;;    { } ! \    ( ) ' "     [ ] $
