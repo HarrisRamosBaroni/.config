@@ -903,7 +903,7 @@
             "simultaneous" : [ {
               "key_code" : "f"
             }, {
-              "key_code" : "d"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -921,7 +921,7 @@
             "simultaneous" : [ {
               "key_code" : "d"
             }, {
-              "key_code" : "s"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -939,7 +939,7 @@
             "simultaneous" : [ {
               "key_code" : "s"
             }, {
-              "key_code" : "a"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -955,9 +955,9 @@
         }, {
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "f"
-            }, {
               "key_code" : "a"
+            }, {
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -977,7 +977,7 @@
             }, {
               "key_code" : "d"
             }, {
-              "key_code" : "s"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -996,9 +996,9 @@
             "simultaneous" : [ {
               "key_code" : "f"
             }, {
-              "key_code" : "d"
+              "key_code" : "s"
             }, {
-              "key_code" : "a"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1017,9 +1017,9 @@
             "simultaneous" : [ {
               "key_code" : "f"
             }, {
-              "key_code" : "s"
-            }, {
               "key_code" : "a"
+            }, {
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1040,7 +1040,7 @@
             }, {
               "key_code" : "s"
             }, {
-              "key_code" : "a"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1057,9 +1057,11 @@
         }, {
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "e"
+              "key_code" : "d"
             }, {
-              "key_code" : "r"
+              "key_code" : "a"
+            }, {
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1078,7 +1080,7 @@
             "simultaneous" : [ {
               "key_code" : "j"
             }, {
-              "key_code" : "k"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1096,7 +1098,7 @@
             "simultaneous" : [ {
               "key_code" : "k"
             }, {
-              "key_code" : "l"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1114,7 +1116,7 @@
             "simultaneous" : [ {
               "key_code" : "l"
             }, {
-              "key_code" : "semicolon"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1132,7 +1134,7 @@
             "simultaneous" : [ {
               "key_code" : "j"
             }, {
-              "key_code" : "semicolon"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1152,7 +1154,7 @@
             }, {
               "key_code" : "k"
             }, {
-              "key_code" : "l"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1171,9 +1173,9 @@
             "simultaneous" : [ {
               "key_code" : "j"
             }, {
-              "key_code" : "k"
+              "key_code" : "l"
             }, {
-              "key_code" : "semicolon"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1192,9 +1194,9 @@
             "simultaneous" : [ {
               "key_code" : "j"
             }, {
-              "key_code" : "l"
-            }, {
               "key_code" : "semicolon"
+            }, {
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1215,7 +1217,7 @@
             }, {
               "key_code" : "l"
             }, {
-              "key_code" : "semicolon"
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,
@@ -1232,9 +1234,11 @@
         }, {
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "u"
+              "key_code" : "k"
             }, {
-              "key_code" : "i"
+              "key_code" : "semicolon"
+            }, {
+              "key_code" : "spacebar"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : false,

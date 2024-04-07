@@ -62,27 +62,27 @@
         {:des "Easy modifier keys"
          :rules [
                  [[:w :e] :escape] 
-                 [[:f :d] :left_shift] 
-                 [[:d :s] :left_command] 
-                 [[:s :a] :left_option] 
-                 [[:f :a] :left_control] 
+                 [[:f :spacebar] :left_shift] 
+                 [[:d :spacebar] :left_command] 
+                 [[:s :spacebar] :left_option] 
+                 [[:a :spacebar] :left_control] 
 
-                 [[:f :d :s] :!Sleft_command nil {:params {:simultaneous_threshold_milliseconds 100}}]             ; fds -> shift + command
-                 [[:f :d :a] :!Sleft_option nil {:params {:simultaneous_threshold_milliseconds 100}}]              ; fda -> shift + option
-                 [[:f :s :a] :!Sleft_control nil {:params {:simultaneous_threshold_milliseconds 100}}]             ; fsa -> shift + control
-                 [[:d :s :a] :!Cleft_option nil {:params {:simultaneous_threshold_milliseconds 100}}]              ; dsa -> command + option
-                 [[:e :r] :!Cleft_control]                                                                         ; er -> command + control
+                 [[:f :d :spacebar] :!Sleft_command nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + f + d -> shift + command
+                 [[:f :s :spacebar] :!Sleft_option nil {:params {:simultaneous_threshold_milliseconds 100}}]           ; space + f + s -> shift + option
+                 [[:f :a :spacebar] :!Sleft_control nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + f + a -> shift + control
+                 [[:d :s :spacebar] :!Cleft_option nil {:params {:simultaneous_threshold_milliseconds 100}}]           ; space + d + s -> command + option
+                 [[:d :a :spacebar] :!Cleft_control nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + d + a -> command + control
 
-                 [[:j :k] :right_shift] 
-                 [[:k :l] :right_command] 
-                 [[:l :semicolon] :right_option] 
-                 [[:j :semicolon] :right_control] 
+                 [[:j :spacebar]:right_shift] 
+                 [[:k :spacebar]:right_command] 
+                 [[:l :spacebar]:right_option] 
+                 [[:j :spacebar]:right_control] 
 
-                 [[:j :k :l] :!Sright_command nil {:params {:simultaneous_threshold_milliseconds 100}}]            ; jkl -> shift + command
-                 [[:j :k :semicolon] :!Sright_option nil {:params {:simultaneous_threshold_milliseconds 100}}]     ; jk; -> shift + option
-                 [[:j :l :semicolon] :!Sright_control nil {:params {:simultaneous_threshold_milliseconds 100}}]    ; jl; -> shift + control
-                 [[:k :l :semicolon] :!Cright_option nil {:params {:simultaneous_threshold_milliseconds 100}}]     ; kl; -> command + option
-                 [[:u :i] :!Cright_control]                                                                        ; ui  -> command + control
+                 [[:j :k :spacebar] :!Sright_command nil {:params {:simultaneous_threshold_milliseconds 100}}]         ; space + j + k -> shift + command
+                 [[:j :l :spacebar] :!Sright_option nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + j + l -> shift + option
+                 [[:j :semicolon :spacebar] :!Sright_control nil {:params {:simultaneous_threshold_milliseconds 100}}] ; space + j + ; -> shift + control
+                 [[:k :l :spacebar] :!Cright_option nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + k + l -> command + option
+                 [[:k :semicolon :spacebar] :!Cright_control nil {:params {:simultaneous_threshold_milliseconds 100}}] ; space + k + ; -> command + control
                 ]}     
 
         {:des "fencing-mode for delimeters and ! ? $"   ;;    { } !     ( ) ' "     [ ] $
