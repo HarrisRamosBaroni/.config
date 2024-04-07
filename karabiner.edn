@@ -226,6 +226,7 @@
                   [:##o :!CTf]             ; w -> o    Full-screen mode
                   ;; [:##u :!Copen_bracket]   ; w -> u    browser back:          Cmd+[
                   ;; [:##i :!Cclose_bracket]  ; w -> i    browser forward:       Cmd+]
+                ;;   [:##h "osascript /Users/harris/Documents/applescripts/toggle_voice_control.scpt"]
                   [:##u :!Tleft_arrow]     ; w -> u    desktop left:          Cmd+[
                   [:##i :!Tright_arrow]    ; w -> i    desktop right:         Cmd+]
                   [:##n :!CSn]             ; w -> n    open private tab:      Cmd+shift-m
