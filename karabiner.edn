@@ -67,22 +67,22 @@
                  [[:s :spacebar] :left_option] 
                  [[:a :spacebar] :left_control] 
 
-                 [[:f :d :spacebar] :!Sleft_command nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + f + d -> shift + command
-                 [[:f :s :spacebar] :!Sleft_option nil {:params {:simultaneous_threshold_milliseconds 100}}]           ; space + f + s -> shift + option
-                 [[:f :a :spacebar] :!Sleft_control nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + f + a -> shift + control
-                 [[:d :s :spacebar] :!Cleft_option nil {:params {:simultaneous_threshold_milliseconds 100}}]           ; space + d + s -> command + option
-                 [[:d :a :spacebar] :!Cleft_control nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + d + a -> command + control
+                 [[:f :d :spacebar] :!Sleft_command nil {:params {:simultaneous_threshold_milliseconds 150}}]          ; space + f + d -> shift + command
+                 [[:f :s :spacebar] :!Sleft_option nil {:params {:simultaneous_threshold_milliseconds 150}}]           ; space + f + s -> shift + option
+                 [[:f :a :spacebar] :!Sleft_control nil {:params {:simultaneous_threshold_milliseconds 150}}]          ; space + f + a -> shift + control
+                 [[:d :s :spacebar] :!Cleft_option nil {:params {:simultaneous_threshold_milliseconds 150}}]           ; space + d + s -> command + option
+                 [[:d :a :spacebar] :!Cleft_control nil {:params {:simultaneous_threshold_milliseconds 150}}]          ; space + d + a -> command + control
 
                  [[:j :spacebar]:right_shift] 
                  [[:k :spacebar]:right_command] 
                  [[:l :spacebar]:right_option] 
                  [[:j :spacebar]:right_control] 
 
-                 [[:j :k :spacebar] :!Sright_command nil {:params {:simultaneous_threshold_milliseconds 100}}]         ; space + j + k -> shift + command
-                 [[:j :l :spacebar] :!Sright_option nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + j + l -> shift + option
-                 [[:j :semicolon :spacebar] :!Sright_control nil {:params {:simultaneous_threshold_milliseconds 100}}] ; space + j + ; -> shift + control
-                 [[:k :l :spacebar] :!Cright_option nil {:params {:simultaneous_threshold_milliseconds 100}}]          ; space + k + l -> command + option
-                 [[:k :semicolon :spacebar] :!Cright_control nil {:params {:simultaneous_threshold_milliseconds 100}}] ; space + k + ; -> command + control
+                 [[:j :k :spacebar] :!Sright_command nil {:params {:simultaneous_threshold_milliseconds 150}}]         ; space + j + k -> shift + command
+                 [[:j :l :spacebar] :!Sright_option nil {:params {:simultaneous_threshold_milliseconds 150}}]          ; space + j + l -> shift + option
+                 [[:j :semicolon :spacebar] :!Sright_control nil {:params {:simultaneous_threshold_milliseconds 150}}] ; space + j + ; -> shift + control
+                 [[:k :l :spacebar] :!Cright_option nil {:params {:simultaneous_threshold_milliseconds 150}}]          ; space + k + l -> command + option
+                 [[:k :semicolon :spacebar] :!Cright_control nil {:params {:simultaneous_threshold_milliseconds 150}}] ; space + k + ; -> command + control
                 ]}     
 
         {:des "fencing-mode for delimeters and ! ? $"   ;;    { } !     ( ) ' "     [ ] $
