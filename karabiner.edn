@@ -179,7 +179,10 @@
                   ;; [:##y         :page_up]             ; y  ->  Page Up (moves cursor in vscode, not in notes)
                   [:##h         [:page_down :!Tl]]    ; h  ->  Page Down and centre cursor (works in vscode, not notes)
                   [:##y         [:page_up :!Tl]]      ; y  ->  Page Up and centre cursor (works in vscode, not notes)
-                  [:##period         :!Tl]            ; .  ->  Center cursor
+                  [:##p         :!Tl]                 ; p  ->  Center cursor
+
+                  [:##period    :!Odown_arrow]        ; ,  ->  Move down at indentation level (requires "indentation level movement extension")
+                  [:##slash    :!Oup_arrow]           ; /  ->  Move up at indentation level (requires "indentation level movement extension")
                   
                   ;; [:##h         [:!Opage_down :!Tl]]                     ; h  ->  Page Down and centre cursor (works in notes, not vscode)
                   ;; [:##y         [:!Opage_up :!Tl]]                       ; y  ->  Page Up and centre cursor (works in notes, not vscode)
