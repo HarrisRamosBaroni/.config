@@ -59,9 +59,10 @@
                   [:m :delete_or_backspace]
                 ]}
 
-        {:des "Easy modifier keys"
+        {:des "Easy modifier keys and other combos"
          :rules [
                  [[:w :e] :escape] 
+                 [[:i :o] :return_or_enter]
                  [[:f :d] :left_shift] 
                  [[:d :s] :left_command] 
                  [[:s :a] :left_option] 
@@ -103,16 +104,16 @@
                  [:##slash     :!S7]               ; f -> /        &
                 ]}
 
-        {:des "equations-mode for arithmetic"           ;;    < > ^ #    + - _ =     * / %
+        {:des "equations-mode for arithmetic"           ;;    < > ^ #    _ - + =     * / %
          :rules [:equations-mode
                   [:##u     :!Scomma]               ; u  ->  <
                   [:##i     :!Speriod]              ; i  ->  >
                   [:##o     :!S6]                   ; o  ->  ^
                   [:##p     :!O3]                   ; ;  ->  #
 
-                  [:##j         :!Sequal_sign]      ; j  ->  +
+                  [:##j         :!Shyphen]          ; j  ->  _
                   [:##k         :hyphen]            ; k  ->  -
-                  [:##l         :!Shyphen]          ; l  ->  _
+                  [:##l         :!Sequal_sign]      ; l  ->  +
                   [:##semicolon :equal_sign]        ; ;  ->  =
 
                   [:##m :!S8]                       ; m  ->  *

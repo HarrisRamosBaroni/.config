@@ -879,7 +879,7 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "Easy modifier keys",
+        "description" : "Easy modifier keys and other combos",
         "manipulators" : [ {
           "from" : {
             "simultaneous" : [ {
@@ -896,6 +896,24 @@
           },
           "to" : [ {
             "key_code" : "escape"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "i"
+            }, {
+              "key_code" : "o"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : false,
+              "key_down_order" : "insensitive",
+              "key_up_order" : "insensitive",
+              "key_up_when" : "any"
+            }
+          },
+          "to" : [ {
+            "key_code" : "return_or_enter"
           } ],
           "type" : "basic"
         }, {
@@ -2054,7 +2072,7 @@
             }
           },
           "to" : [ {
-            "key_code" : "equal_sign",
+            "key_code" : "hyphen",
             "modifiers" : [ "left_shift" ]
           } ],
           "conditions" : [ {
@@ -2074,7 +2092,7 @@
               "value" : 1
             }
           }, {
-            "key_code" : "equal_sign",
+            "key_code" : "hyphen",
             "modifiers" : [ "left_shift" ]
           } ],
           "from" : {
@@ -2152,7 +2170,7 @@
             }
           },
           "to" : [ {
-            "key_code" : "hyphen",
+            "key_code" : "equal_sign",
             "modifiers" : [ "left_shift" ]
           } ],
           "conditions" : [ {
@@ -2172,7 +2190,7 @@
               "value" : 1
             }
           }, {
-            "key_code" : "hyphen",
+            "key_code" : "equal_sign",
             "modifiers" : [ "left_shift" ]
           } ],
           "from" : {
