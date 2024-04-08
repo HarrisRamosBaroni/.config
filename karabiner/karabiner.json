@@ -4649,7 +4649,7 @@
           }
         } ]
       }, {
-        "description" : "w-mode for general shortcuts like browser tab navigation",
+        "description" : "windows-mode for general shortcuts like browser tab navigation",
         "manipulators" : [ {
           "from" : {
             "key_code" : "j",
@@ -4662,7 +4662,7 @@
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
           "conditions" : [ {
-            "name" : "w-mode",
+            "name" : "windows-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -4674,7 +4674,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "w-mode",
+              "name" : "windows-mode",
               "value" : 1
             }
           }, {
@@ -4694,7 +4694,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "w-mode",
+                  "name" : "windows-mode",
                   "value" : 0
                 }
               } ]
@@ -4712,7 +4712,7 @@
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
           "conditions" : [ {
-            "name" : "w-mode",
+            "name" : "windows-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -4724,7 +4724,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "w-mode",
+              "name" : "windows-mode",
               "value" : 1
             }
           }, {
@@ -4744,7 +4744,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "w-mode",
+                  "name" : "windows-mode",
                   "value" : 0
                 }
               } ]
@@ -4762,7 +4762,7 @@
             "modifiers" : [ "left_command" ]
           } ],
           "conditions" : [ {
-            "name" : "w-mode",
+            "name" : "windows-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -4774,7 +4774,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "w-mode",
+              "name" : "windows-mode",
               "value" : 1
             }
           }, {
@@ -4794,7 +4794,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "w-mode",
+                  "name" : "windows-mode",
                   "value" : 0
                 }
               } ]
@@ -4812,7 +4812,7 @@
             "modifiers" : [ "left_command" ]
           } ],
           "conditions" : [ {
-            "name" : "w-mode",
+            "name" : "windows-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -4824,7 +4824,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "w-mode",
+              "name" : "windows-mode",
               "value" : 1
             }
           }, {
@@ -4844,7 +4844,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "w-mode",
+                  "name" : "windows-mode",
                   "value" : 0
                 }
               } ]
@@ -4862,7 +4862,7 @@
             "modifiers" : [ "left_command", "left_control" ]
           } ],
           "conditions" : [ {
-            "name" : "w-mode",
+            "name" : "windows-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -4874,7 +4874,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "w-mode",
+              "name" : "windows-mode",
               "value" : 1
             }
           }, {
@@ -4894,7 +4894,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "w-mode",
+                  "name" : "windows-mode",
                   "value" : 0
                 }
               } ]
@@ -4912,7 +4912,7 @@
             "modifiers" : [ "left_control" ]
           } ],
           "conditions" : [ {
-            "name" : "w-mode",
+            "name" : "windows-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -4924,7 +4924,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "w-mode",
+              "name" : "windows-mode",
               "value" : 1
             }
           }, {
@@ -4944,7 +4944,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "w-mode",
+                  "name" : "windows-mode",
                   "value" : 0
                 }
               } ]
@@ -4962,7 +4962,7 @@
             "modifiers" : [ "left_control" ]
           } ],
           "conditions" : [ {
-            "name" : "w-mode",
+            "name" : "windows-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -4974,7 +4974,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "w-mode",
+              "name" : "windows-mode",
               "value" : 1
             }
           }, {
@@ -4994,7 +4994,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "w-mode",
+                  "name" : "windows-mode",
                   "value" : 0
                 }
               } ]
@@ -5012,7 +5012,7 @@
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
           "conditions" : [ {
-            "name" : "w-mode",
+            "name" : "windows-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -5024,7 +5024,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "w-mode",
+              "name" : "windows-mode",
               "value" : 1
             }
           }, {
@@ -5044,7 +5044,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "w-mode",
+                  "name" : "windows-mode",
                   "value" : 0
                 }
               } ]
@@ -5062,7 +5062,7 @@
             "modifiers" : [ "left_command", "left_shift" ]
           } ],
           "conditions" : [ {
-            "name" : "w-mode",
+            "name" : "windows-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -5074,7 +5074,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "w-mode",
+              "name" : "windows-mode",
               "value" : 1
             }
           }, {
@@ -5094,7 +5094,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "w-mode",
+                  "name" : "windows-mode",
                   "value" : 0
                 }
               } ]

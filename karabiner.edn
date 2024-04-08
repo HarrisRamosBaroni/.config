@@ -28,7 +28,7 @@
              :equations-mode {:key :e}    ; arithmetic    + - * / = % < > #
              :adventure-mode {:key :a}    ; navigation    arrows, tab, enter, page down/up
              ;
-             :w-mode {:key :w}            ; General shortcuts (browser etc.)
+             :windows-mode {:key :w}            ; General shortcuts (browser etc.)
              :select-mode {:key :s}       ; Selection in all directions, add cursors, cut, copy, paste
              :delete-mode {:key :d}       ; Deletion left and right (letter, word, line), undo, redo
              :num-mode {:key :spacebar}   ; number row and symbols
@@ -69,7 +69,7 @@
 
         ;; Borrowed and modified from kchen0x/k-goku, interesting feature, not sure how and when to use it.
         {:des "Cursor mode mousekey movement reduce the speed)"
-        :rules [:cursor-mode
+         :rules [:cursor-mode
                 [:i {:mkey {:y -1200}}]   ; up
                 [:k {:mkey {:y 1200}}]    ; down
                 [:j {:mkey {:x -1200}}]   ; left
@@ -77,8 +77,8 @@
                 [:n {:pkey :button1}]
                 [:m {:pkey :button2}]]}
 
-         {:des "Cursor mode mousekey movement reduce the speed)"
-        :rules [:slow-cursor-mode
+        {:des "Cursor mode mousekey movement reduce the speed)"
+         :rules [:slow-cursor-mode
                 [:i {:mkey {:y -500}}]   ; slow up
                 [:k {:mkey {:y 500}} ]   ; slow down
                 [:j {:mkey {:x -500}}]   ; slow left
@@ -238,8 +238,8 @@
                   [:##slash     :!COv]                ; /  ->  Move (paste) file to current directory (after copying file)
                 ]}
 
-        {:des "w-mode for general shortcuts like browser tab navigation"
-         :rules [:w-mode
+        {:des "windows-mode for general shortcuts like browser tab navigation"
+         :rules [:windows-mode
                   [:##j :!CSopen_bracket]                   ; j  ->  tab to the left:       Cmd+{
                   [:##k :!CSclose_bracket]                  ; k  ->  tab to the right:      Cmd+}
                   [:##l :!Ctab]                             ; l  ->  change app:            Cmd+Tab
