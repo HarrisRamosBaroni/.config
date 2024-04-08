@@ -626,257 +626,579 @@
         "basic.to_if_held_down_threshold_milliseconds" : 1000
       },
       "rules" : [ {
-        "description" : "Press right_shift twice to enter double shift mode, press right_shift once to leave it",
+        "description" : "Cursor mode mousekey movement reduce the speed)",
         "manipulators" : [ {
           "from" : {
-            "key_code" : "right_shift"
+            "key_code" : "i"
           },
           "to" : [ {
-            "set_variable" : {
-              "name" : "double-right-shift-mode",
-              "value" : 1
+            "mouse_key" : {
+              "y" : -1200
             }
           } ],
           "conditions" : [ {
-            "name" : "shift-pressed-once",
+            "name" : "cursor-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
         }, {
-          "to_delayed_action" : {
-            "to_if_invoked" : [ {
-              "set_variable" : {
-                "name" : "shift-pressed-once",
-                "value" : 0
-              }
-            } ],
-            "to_if_canceled" : [ {
-              "set_variable" : {
-                "name" : "shift-pressed-once",
-                "value" : 0
-              }
-            } ]
-          },
-          "from" : {
-            "key_code" : "right_shift"
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
           },
           "to" : [ {
-            "key_code" : "right_shift"
+            "set_variable" : {
+              "name" : "cursor-mode",
+              "value" : 1
+            }
           }, {
-            "set_variable" : {
-              "name" : "shift-pressed-once",
-              "value" : 1
+            "mouse_key" : {
+              "y" : -1200
             }
           } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 0,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
           "from" : {
-            "key_code" : "right_shift"
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "double-right-shift-mode",
-              "value" : 0
+            "simultaneous" : [ {
+              "key_code" : "c"
+            }, {
+              "key_code" : "i"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "cursor-mode",
+                  "value" : 0
+                }
+              } ]
             }
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
-        "description" : "alternative num-mode for numbers on home row, and symbols",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "a"
-          },
-          "to" : [ {
-            "key_code" : "1"
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "s"
-          },
-          "to" : [ {
-            "key_code" : "2"
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "d"
-          },
-          "to" : [ {
-            "key_code" : "3"
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "f"
-          },
-          "to" : [ {
-            "key_code" : "4"
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "g"
-          },
-          "to" : [ {
-            "key_code" : "5"
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "h"
-          },
-          "to" : [ {
-            "key_code" : "6"
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "j"
-          },
-          "to" : [ {
-            "key_code" : "7"
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
+          }
         }, {
           "from" : {
             "key_code" : "k"
           },
           "to" : [ {
-            "key_code" : "8"
+            "mouse_key" : {
+              "y" : 1200
+            }
           } ],
           "conditions" : [ {
-            "name" : "double-right-shift-mode",
+            "name" : "cursor-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "mouse_key" : {
+              "y" : 1200
+            }
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "c"
+            }, {
+              "key_code" : "k"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "mouse_key" : {
+              "x" : -1200
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "cursor-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "mouse_key" : {
+              "x" : -1200
+            }
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "c"
+            }, {
+              "key_code" : "j"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         }, {
           "from" : {
             "key_code" : "l"
           },
           "to" : [ {
-            "key_code" : "9"
+            "mouse_key" : {
+              "x" : 1200
+            }
           } ],
           "conditions" : [ {
-            "name" : "double-right-shift-mode",
+            "name" : "cursor-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
         }, {
-          "from" : {
-            "key_code" : "semicolon"
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
           },
           "to" : [ {
-            "key_code" : "0"
+            "set_variable" : {
+              "name" : "cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "mouse_key" : {
+              "x" : 1200
+            }
           } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
           "from" : {
-            "key_code" : "u"
-          },
-          "to" : [ {
-            "key_code" : "equal_sign",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "i"
-          },
-          "to" : [ {
-            "key_code" : "hyphen"
-          } ],
-          "conditions" : [ {
-            "name" : "double-right-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
+            "simultaneous" : [ {
+              "key_code" : "c"
+            }, {
+              "key_code" : "l"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         }, {
           "from" : {
             "key_code" : "n"
           },
           "to" : [ {
-            "key_code" : "return_or_enter"
+            "pointing_button" : "button1"
           } ],
           "conditions" : [ {
-            "name" : "double-right-shift-mode",
+            "name" : "cursor-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
         }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "pointing_button" : "button1"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "c"
+            }, {
+              "key_code" : "n"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
           "from" : {
             "key_code" : "m"
           },
           "to" : [ {
-            "key_code" : "delete_or_backspace"
+            "pointing_button" : "button2"
           } ],
           "conditions" : [ {
-            "name" : "double-right-shift-mode",
+            "name" : "cursor-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "pointing_button" : "button2"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "c"
+            }, {
+              "key_code" : "m"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "i"
+          },
+          "to" : [ {
+            "mouse_key" : {
+              "y" : -500
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "slow-cursor-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slow-cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "mouse_key" : {
+              "y" : -500
+            }
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "v"
+            }, {
+              "key_code" : "i"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slow-cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "mouse_key" : {
+              "y" : 500
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "slow-cursor-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slow-cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "mouse_key" : {
+              "y" : 500
+            }
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "v"
+            }, {
+              "key_code" : "k"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slow-cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "mouse_key" : {
+              "x" : -500
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "slow-cursor-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slow-cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "mouse_key" : {
+              "x" : -500
+            }
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "v"
+            }, {
+              "key_code" : "j"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slow-cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "l"
+          },
+          "to" : [ {
+            "mouse_key" : {
+              "x" : 500
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "slow-cursor-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slow-cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "mouse_key" : {
+              "x" : 500
+            }
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "v"
+            }, {
+              "key_code" : "l"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slow-cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "n"
+          },
+          "to" : [ {
+            "pointing_button" : "button1"
+          } ],
+          "conditions" : [ {
+            "name" : "slow-cursor-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slow-cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "pointing_button" : "button1"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "v"
+            }, {
+              "key_code" : "n"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slow-cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "m"
+          },
+          "to" : [ {
+            "pointing_button" : "button2"
+          } ],
+          "conditions" : [ {
+            "name" : "slow-cursor-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slow-cursor-mode",
+              "value" : 1
+            }
+          }, {
+            "pointing_button" : "button2"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "v"
+            }, {
+              "key_code" : "m"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slow-cursor-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         } ]
       }, {
         "description" : "Easy modifier keys and other combos",

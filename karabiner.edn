@@ -18,6 +18,11 @@
            :sculpt-keyboard [{:product_id 1957 :vendor_id 1118}]
            }
 
+;;  :layers {
+;;           :hyper-mode {:key :caps_lock :alone {:key :caps_lock}} ;; make the caps_lock key the hyper key
+;;           :slow-cursor-mode {:key :v} ;; slow cursor movement
+;;           }
+
  :simlayers {
              :fencing-mode {:key :f}      ; delimeters    ( ) [ ] { } ' " and other symbols ! \ $ &
              :equations-mode {:key :e}    ; arithmetic    + - * / = % < > #
@@ -30,6 +35,9 @@
              ;
              :r-mode {:key :r}            ; Slashes and lines  ^ | \ _ @
              :q-mode {:key :q}            ; Volume and brightness
+             ;
+             :cursor-mode {:key :c}       ; Cursor movement
+             :slow-cursor-mode {:key :v}  ; Slow cursor movement
              }
 
  :main [
@@ -58,6 +66,25 @@
                   [:n :return_or_enter]
                   [:m :delete_or_backspace]
                 ]}
+
+        ;; Borrowed and modified from kchen0x/k-goku, interesting feature, not sure how and when to use it.
+        {:des "Cursor mode mousekey movement reduce the speed)"
+        :rules [:cursor-mode
+                [:i {:mkey {:y -1200}}]   ; up
+                [:k {:mkey {:y 1200}}]    ; down
+                [:j {:mkey {:x -1200}}]   ; left
+                [:l {:mkey {:x 1200}}]    ; right
+                [:n {:pkey :button1}]
+                [:m {:pkey :button2}]]}
+
+         {:des "Cursor mode mousekey movement reduce the speed)"
+        :rules [:slow-cursor-mode
+                [:i {:mkey {:y -500}}]   ; slow up
+                [:k {:mkey {:y 500}} ]   ; slow down
+                [:j {:mkey {:x -500}}]   ; slow left
+                [:l {:mkey {:x 500}} ]   ; slow right
+                [:n {:pkey :button1}]
+                [:m {:pkey :button2}]]}        
 
         {:des "Easy modifier keys and other combos"
          :rules [
