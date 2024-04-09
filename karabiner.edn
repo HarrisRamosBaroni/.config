@@ -23,7 +23,7 @@
              :equations-mode {:key :e}    ; arithmetic    + - * / = % < > #
              :adventure-mode {:key :a}    ; navigation    arrows, tab, enter, page down/up
              ;
-             :w-mode {:key :w}            ; General shortcuts (browser etc.)
+             :windows-mode {:key :w}            ; General shortcuts (browser etc.)
              :select-mode {:key :s}       ; Selection in all directions, add cursors, cut, copy, paste
              :delete-mode {:key :d}       ; Deletion left and right (letter, word, line), undo, redo
              :num-mode {:key :spacebar}   ; number row and symbols
@@ -211,8 +211,8 @@
                   [:##slash     :!COv]                ; /  ->  Move (paste) file to current directory (after copying file)
                 ]}
 
-        {:des "w-mode for general shortcuts like browser tab navigation"
-         :rules [:w-mode
+        {:des "windows-mode for general shortcuts like browser tab navigation"
+         :rules [:windows-mode
                   [:##j :!CSopen_bracket]                   ; j  ->  tab to the left:       Cmd+{
                   [:##k :!CSclose_bracket]                  ; k  ->  tab to the right:      Cmd+}
                   [:##l :!Ctab]                             ; l  ->  change app:            Cmd+Tab
