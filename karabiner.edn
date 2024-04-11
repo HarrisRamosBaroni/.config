@@ -61,8 +61,8 @@
 
         {:des "Easy modifier keys and other combos"
          :rules [
-                ;;  [[:w :e] :escape]              ; pick the best
-                 [[:x :c] :escape]             ; pick the best
+                 [[:w :e] :escape]              ; pick the best
+                ;;  [[:x :c] :escape]             ; pick the best
                 ;;  [[:c :v] :escape]              ; pick the best
                 ;;  [[:m :comma] :return_or_enter]         ; pick the best
                 ;;  [[:comma :period] :return_or_enter]    ; pick the best
@@ -217,8 +217,8 @@
                   [:##k :!CSclose_bracket]                  ; k  ->  tab to the right:      Cmd+}
                   [:##l :!Ctab]                             ; l  ->  change app:            Cmd+Tab
                   [:##semicolon :!Cgrave_accent_and_tilde]  ; ;  ->  change window: Cmd+`
-                  [:##o :!CTf]                              ; o  ->  Full-screen mode
-                  ;; [:##o :!Ctab]                          ; o  ->  change app:            Cmd+Tab
+                  [:##o "open -a Raycast"]                  ; o  ->  open Raycast
+                  [:##p :!CTf]                              ; p  ->  Full-screen mode
                   ;; [:##u :!Copen_bracket]                 ; u  ->  browser back:          Cmd+[
                   ;; [:##i :!Cclose_bracket]                ; i  ->  browser forward:       Cmd+]                 
                   ;; [:##h "osascript /Users/harris/Documents/applescripts/toggle_voice_control.scpt"]
