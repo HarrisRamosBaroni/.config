@@ -18,6 +18,10 @@
            :sculpt-keyboard [{:product_id 1957 :vendor_id 1118}]
            }
 
+ :templates {
+             :yabai-focus-space    "/usr/local/bin/yabai -m space --focus \"%s\""
+             }
+
  :simlayers {
              :fencing-mode {:key :f}      ; delimeters    ( ) [ ] { } ' " and other symbols ! \ $ &
              :equations-mode {:key :e}    ; arithmetic    + - * / = % < > #
@@ -222,8 +226,10 @@
                   ;; [:##u :!Copen_bracket]                 ; u  ->  browser back:          Cmd+[
                   ;; [:##i :!Cclose_bracket]                ; i  ->  browser forward:       Cmd+]                 
                   ;; [:##h "osascript /Users/harris/Documents/applescripts/toggle_voice_control.scpt"]
-                  [:##u :!Tleft_arrow]                      ; u  ->  desktop left:          Cmd+[
-                  [:##i :!Tright_arrow]                     ; i  ->  desktop right:         Cmd+]
+                  [:##u [:yabai-focus-space "prev"]]        ; u  ->  desktop left using yabai
+                  [:##i [:yabai-focus-space "next"]]        ; u  ->  desktop right using yabai
+                ;;   [:##u :!Tleft_arrow]                      ; u  ->  desktop left:          Cmd+[
+                ;;   [:##i :!Tright_arrow]                     ; i  ->  desktop right:         Cmd+]
                   [:##n :!CSn]                              ; n  ->  open private tab:      Cmd+shift-m
                   [:##m :!CSm]                              ; m  ->  switch brave profile:  Cmd+shift-m
                 ]}
