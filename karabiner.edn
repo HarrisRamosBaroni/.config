@@ -20,6 +20,7 @@
 
  :templates {
              :yabai-focus-space    "/usr/local/bin/yabai -m space --focus \"%s\""
+        ;;      :yabai-create-space    "/usr/local/bin/yabai -m space --focus \"%s\""
              }
 
  :simlayers {
@@ -227,7 +228,9 @@
                   ;; [:##i :!Cclose_bracket]                ; i  ->  browser forward:       Cmd+]                 
                   ;; [:##h "osascript /Users/harris/Documents/applescripts/toggle_voice_control.scpt"]
                   [:##u [:yabai-focus-space "prev"]]        ; u  ->  desktop left using yabai
-                  [:##i [:yabai-focus-space "next"]]        ; u  ->  desktop right using yabai
+                  [:##i [:yabai-focus-space "next"]]        ; i  ->  desktop right using yabai
+                  [:##h "/usr/local/bin/yabai -m space --create"] ; h  -> yabai create empty space
+                ;;   [:##u [:yabai-focus-space ""]]        ; u  ->  yabai create new empty space
                 ;;   [:##u :!Tleft_arrow]                      ; u  ->  desktop left:          Cmd+[
                 ;;   [:##i :!Tright_arrow]                     ; i  ->  desktop right:         Cmd+]
                   [:##n :!CSn]                              ; n  ->  open private tab:      Cmd+shift-m
