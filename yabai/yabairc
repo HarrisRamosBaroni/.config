@@ -18,6 +18,9 @@ yabai -m config bottom_padding 12
 yabai -m config left_padding 12
 yabai -m config right_padding 12
 
+# add 35 padding to the top and 0 padding to the bottom of every space located on the main display
+yabai -m config external_bar main:35:0
+
 # mouse settings
 yabai -m confid mouse_follows_focus on 
 yabai -m config mouse_modifier fn
