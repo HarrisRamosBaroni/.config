@@ -4381,7 +4381,8 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m space --focus \"prev\""
+            "key_code" : "open_bracket",
+            "modifiers" : [ "left_command" ]
           } ],
           "conditions" : [ {
             "name" : "windows-mode",
@@ -4400,7 +4401,8 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "/usr/local/bin/yabai -m space --focus \"prev\""
+            "key_code" : "open_bracket",
+            "modifiers" : [ "left_command" ]
           } ],
           "from" : {
             "simultaneous" : [ {
@@ -4429,7 +4431,8 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m space --focus \"next\""
+            "key_code" : "close_bracket",
+            "modifiers" : [ "left_command" ]
           } ],
           "conditions" : [ {
             "name" : "windows-mode",
@@ -4448,7 +4451,8 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "/usr/local/bin/yabai -m space --focus \"next\""
+            "key_code" : "close_bracket",
+            "modifiers" : [ "left_command" ]
           } ],
           "from" : {
             "simultaneous" : [ {
