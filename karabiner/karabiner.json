@@ -4567,14 +4567,13 @@
           }
         }, {
           "from" : {
-            "key_code" : "n",
+            "key_code" : "m",
             "modifiers" : {
               "optional" : [ "any" ]
             }
           },
           "to" : [ {
-            "key_code" : "n",
-            "modifiers" : [ "left_command", "left_shift" ]
+            "shell_command" : "/usr/local/bin/yabai -m window --space next"
           } ],
           "conditions" : [ {
             "name" : "windows-mode",
@@ -4593,58 +4592,7 @@
               "value" : 1
             }
           }, {
-            "key_code" : "n",
-            "modifiers" : [ "left_command", "left_shift" ]
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "w"
-            }, {
-              "key_code" : "n"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "windows-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "m",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "m",
-            "modifiers" : [ "left_command", "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "windows-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "windows-mode",
-              "value" : 1
-            }
-          }, {
-            "key_code" : "m",
-            "modifiers" : [ "left_command", "left_shift" ]
+            "shell_command" : "/usr/local/bin/yabai -m window --space next"
           } ],
           "from" : {
             "simultaneous" : [ {
@@ -4667,13 +4615,13 @@
           }
         }, {
           "from" : {
-            "key_code" : "comma",
+            "key_code" : "n",
             "modifiers" : {
               "optional" : [ "any" ]
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --space next"
+            "shell_command" : "/usr/local/bin/yabai -m window --toggle float"
           } ],
           "conditions" : [ {
             "name" : "windows-mode",
@@ -4692,7 +4640,55 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "/usr/local/bin/yabai -m window --space next"
+            "shell_command" : "/usr/local/bin/yabai -m window --toggle float"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "w"
+            }, {
+              "key_code" : "n"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "windows-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "comma",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "shell_command" : "/usr/local/bin/yabai -m window --opacity 0.8"
+          } ],
+          "conditions" : [ {
+            "name" : "windows-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "windows-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "/usr/local/bin/yabai -m window --opacity 0.8"
           } ],
           "from" : {
             "simultaneous" : [ {
@@ -4721,7 +4717,7 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --toggle float"
+            "shell_command" : "/usr/local/bin/yabai -m window --opacity 0.0"
           } ],
           "conditions" : [ {
             "name" : "windows-mode",
@@ -4740,7 +4736,7 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "/usr/local/bin/yabai -m window --toggle float"
+            "shell_command" : "/usr/local/bin/yabai -m window --opacity 0.0"
           } ],
           "from" : {
             "simultaneous" : [ {
