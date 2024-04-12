@@ -237,8 +237,8 @@
                   ;; [:##i :!Tright_arrow]                                       ; i  ->  desktop right:         Ctrl+]
                   ;; [:##n :!CSn]                                                ; n  ->  open private tab:      Cmd+shift-n
                   ;; [:##m :!CSm]                                                ; m  ->  switch brave profile:  Cmd+shift-m
-                  [:##m "/usr/local/bin/yabai -m window --space next"]           ; ,  ->  yabai move window to next space (n for next)
-                  [:##n "/usr/local/bin/yabai -m window --toggle float"]         ; .  ->  yabai make window float (i.e not tiled)
+                  [:##n "/usr/local/bin/yabai -m window --space next"]           ; n  ->  yabai move window to next space (n for next)
+                  [:##m "/usr/local/bin/yabai -m window --toggle float"]         ; m  ->  yabai make window float (i.e not tiled)
                   [:##comma "/usr/local/bin/yabai -m window --opacity 0.8"]      ; ,  ->  yabai make window 80% opacity (and auto manage turns off)
                   [:##period "/usr/local/bin/yabai -m window --opacity 0.0"]     ; .  ->  yabai make window 100% opacity and automatically managed
                 ]}
