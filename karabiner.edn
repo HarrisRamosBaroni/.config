@@ -239,7 +239,7 @@
                   ;; [:##m :!CSm]                                                ; m  ->  switch brave profile:  Cmd+shift-m
                   [:##n "/usr/local/bin/yabai -m window --space next"]           ; n  ->  yabai move window to next space (n for next)
                   [:##m "/usr/local/bin/yabai -m window --toggle float"]         ; m  ->  yabai make window float (i.e not tiled)
-                  [:##comma "/usr/local/bin/yabai -m window --opacity 0.8"]      ; ,  ->  yabai make window 80% opacity (and auto manage turns off)
+                  [:##comma "/usr/local/bin/yabai -m window --opacity 0.9"]      ; ,  ->  yabai make window 90% opacity (and auto manage turns off)
                   [:##period "/usr/local/bin/yabai -m window --opacity 0.0"]     ; .  ->  yabai make window 100% opacity and automatically managed
                 ]}
 

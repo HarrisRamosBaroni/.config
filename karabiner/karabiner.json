@@ -4669,7 +4669,7 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --opacity 0.8"
+            "shell_command" : "/usr/local/bin/yabai -m window --opacity 0.9"
           } ],
           "conditions" : [ {
             "name" : "windows-mode",
@@ -4688,7 +4688,7 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "/usr/local/bin/yabai -m window --opacity 0.8"
+            "shell_command" : "/usr/local/bin/yabai -m window --opacity 0.9"
           } ],
           "from" : {
             "simultaneous" : [ {
