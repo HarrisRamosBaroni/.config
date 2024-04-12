@@ -20,7 +20,7 @@
 
  :templates {
              :yabai-focus-space    "/usr/local/bin/yabai -m space --focus \"%s\""
-        ;;      :yabai-create-space    "/usr/local/bin/yabai -m space --focus \"%s\""
+             ;; :yabai-create-space    "/usr/local/bin/yabai -m space --focus \"%s\""
              }
 
  :simlayers {
@@ -28,7 +28,7 @@
              :equations-mode {:key :e}    ; arithmetic    + - * / = % < > #
              :adventure-mode {:key :a}    ; navigation    arrows, tab, enter, page down/up
              ;
-             :windows-mode {:key :w}            ; General shortcuts (browser etc.)
+             :windows-mode {:key :w}      ; General shortcuts (browser etc.)
              :select-mode {:key :s}       ; Selection in all directions, add cursors, cut, copy, paste
              :delete-mode {:key :d}       ; Deletion left and right (letter, word, line), undo, redo
              :num-mode {:key :spacebar}   ; number row and symbols
@@ -218,23 +218,27 @@
 
         {:des "windows-mode for general shortcuts like browser tab navigation"
          :rules [:windows-mode
-                  [:##j :!CSopen_bracket]                   ; j  ->  tab to the left:       Cmd+{
-                  [:##k :!CSclose_bracket]                  ; k  ->  tab to the right:      Cmd+}
-                  [:##l :!Ctab]                             ; l  ->  change app:            Cmd+Tab
-                  [:##semicolon :!Cgrave_accent_and_tilde]  ; ;  ->  change window: Cmd+`
-                  [:##o "open -a Raycast"]                  ; o  ->  open Raycast
-                  [:##p :!CTf]                              ; p  ->  Full-screen mode
-                  ;; [:##u :!Copen_bracket]                 ; u  ->  browser back:          Cmd+[
-                  ;; [:##i :!Cclose_bracket]                ; i  ->  browser forward:       Cmd+]                 
+                  [:##j :!CSopen_bracket]                                        ; j  ->  tab to the left:       Cmd+{
+                  [:##k :!CSclose_bracket]                                       ; k  ->  tab to the right:      Cmd+}
+                  [:##l :!Ctab]                                                  ; l  ->  change app:            Cmd+Tab
+                  [:##semicolon :!Cgrave_accent_and_tilde]                       ; ;  ->  change window: Cmd+`
+                  [:##o "open -a Raycast"]                                       ; o  ->  open Raycast
+                  [:##p :!CTf]                                                   ; p  ->  Full-screen mode
+                  ;; [:##u :!Copen_bracket]                                      ; u  ->  browser back:          Cmd+[
+                  ;; [:##i :!Cclose_bracket]                                     ; i  ->  browser forward:       Cmd+]                 
                   ;; [:##h "osascript /Users/harris/Documents/applescripts/toggle_voice_control.scpt"]
-                  [:##u [:yabai-focus-space "prev"]]        ; u  ->  desktop left using yabai
-                  [:##i [:yabai-focus-space "next"]]        ; i  ->  desktop right using yabai
-                  [:##h "/usr/local/bin/yabai -m space --create"] ; h  -> yabai create empty space
-                ;;   [:##u [:yabai-focus-space ""]]        ; u  ->  yabai create new empty space
-                ;;   [:##u :!Tleft_arrow]                      ; u  ->  desktop left:          Cmd+[
-                ;;   [:##i :!Tright_arrow]                     ; i  ->  desktop right:         Cmd+]
-                  [:##n :!CSn]                              ; n  ->  open private tab:      Cmd+shift-m
-                  [:##m :!CSm]                              ; m  ->  switch brave profile:  Cmd+shift-m
+                  [:##u [:yabai-focus-space "prev"]]                             ; u  ->  desktop left using yabai
+                  [:##i [:yabai-focus-space "next"]]                             ; i  ->  desktop right using yabai
+                  [:##h "/usr/local/bin/yabai -m space --create"]                ; h  ->  yabai create empty space
+                  [:##y "/usr/local/bin/yabai -m space --destroy"]               ; y  ->  yabai destroy space
+                  ;; [[:u :i] "/usr/local/bin/yabai -m space --destroy"]         ; ui ->  yabai destroy space
+                  ;; [:##u [:yabai-focus-space ""]]                              ; u  ->  yabai create new empty space
+                  ;; [:##u :!Tleft_arrow]                                        ; u  ->  desktop left:          Ctrl+[
+                  ;; [:##i :!Tright_arrow]                                       ; i  ->  desktop right:         Ctrl+]
+                  [:##n :!CSn]                                                   ; n  ->  open private tab:      Cmd+shift-n
+                  [:##m :!CSm]                                                   ; m  ->  switch brave profile:  Cmd+shift-m
+                  [:##comma "/usr/local/bin/yabai -m window --space next"]       ; ,  ->  yabai move window to next space
+                  [:##period "/usr/local/bin/yabai -m window --toggle float"]    ; .  ->  yabai make window float (i.e not tiled)
                 ]}
 
         {:des "num-mode for numbers on home row, and symbols"
