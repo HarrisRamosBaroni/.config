@@ -31,8 +31,8 @@ yabai -m config mouse_drop_action swap
 # window opacity (default: off)
 # render all unfocused windows with 90% opacity
 yabai -m config window_opacity on
-yabai -m config active_window_opacity 0.9
-yabai -m config normal_window_opacity 0.7
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.8
 
 # disable specific apps (system settings, karabiner-elements)
 yabai -m config rule --add app="^System Preferences$" manage=off
