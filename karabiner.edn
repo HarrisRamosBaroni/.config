@@ -24,9 +24,9 @@
              }
 
  :simlayers {
-             :fencing-mode {:key :f}      ; delimeters    ( ) [ ] { } ' " and other symbols ! \ $ &
+             :fencing-mode {:key :a}      ; delimeters    ( ) [ ] { } ' " and other symbols ! \ $ &
              :equations-mode {:key :e}    ; arithmetic    + - * / = % < > #
-             :adventure-mode {:key :a}    ; navigation    arrows, tab, enter, page down/up
+             :adventure-mode {:key :f}    ; navigation    arrows, tab, enter, page down/up
              ;
              :windows-mode {:key :w}      ; General shortcuts (browser etc.)
              :select-mode {:key :s}       ; Selection in all directions, add cursors, cut, copy, paste
