@@ -170,6 +170,7 @@
                   [:##u         :!Cleft_arrow]        ; i  ->  Cmd+Left
                   [:##i         :!Cright_arrow]       ; o  ->  Cmd+Right
                   [:##o         :tab]                 ; o  ->  Tab
+                  [:##p         :!Stab]               ; p  ->  Shift+Tab
 
                   [:##j         :!Oleft_arrow]        ; j  ->  Opt+Left
                   [:##k         :!Oright_arrow]       ; k  ->  Opt+Right
@@ -180,14 +181,14 @@
                   [:##m         :down_arrow]          ; m  ->  Down
                   [:##comma     :up_arrow]            ; ,  ->  Up
                   
-                  ;; [:##h         :page_down]           ; h  ->  Page Down (moves cursor in vscode, not in notes)
-                  ;; [:##y         :page_up]             ; y  ->  Page Up (moves cursor in vscode, not in notes)
-                  [:##h         [:page_down :!Tl]]    ; h  ->  Page Down and centre cursor (works in vscode, not notes)
-                  [:##y         [:page_up :!Tl]]      ; y  ->  Page Up and centre cursor (works in vscode, not notes)
-                  [:##p         :!Tl]                 ; p  ->  Center cursor
+                  [:##h         :page_down]           ; h  ->  Page Down (moves cursor in vscode, not in notes)
+                  [:##y         :page_up]             ; y  ->  Page Up (moves cursor in vscode, not in notes)
+                  ;;   [:##h         [:page_down :!Tl]]    ; h  ->  Page Down and centre cursor (works in vscode, not notes)
+                  ;;   [:##y         [:page_up :!Tl]]      ; y  ->  Page Up and centre cursor (works in vscode, not notes)
+                  ;;   [:##p         :!Tl]                 ; p  ->  Center cursor
 
                   [:##period    :!Odown_arrow]        ; ,  ->  Move down at indentation level (requires "indentation level movement extension")
-                  [:##slash    :!Oup_arrow]           ; /  ->  Move up at indentation level (requires "indentation level movement extension")
+                  [:##slash     :!Oup_arrow]          ; /  ->  Move up at indentation level (requires "indentation level movement extension")
                   
                   ;; [:##h         [:!Opage_down :!Tl]]                     ; h  ->  Page Down and centre cursor (works in notes, not vscode)
                   ;; [:##y         [:!Opage_up :!Tl]]                       ; y  ->  Page Up and centre cursor (works in notes, not vscode)
