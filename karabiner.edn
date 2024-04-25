@@ -24,17 +24,17 @@
              }
 
  :simlayers {
-             :fencing-mode {:key :a}      ; delimeters    ( ) [ ] { } ' " and other symbols ! \ $ &
-             :equations-mode {:key :e}    ; arithmetic    + - * / = % < > #
-             :adventure-mode {:key :f}    ; navigation    arrows, tab, enter, page down/up
+             :fencing-mode   {:key :a}          ; delimeters    ( ) [ ] { } ' " and other symbols ! \ $ &
+             :equations-mode {:key :e}          ; arithmetic    + - * / = % < > #
+             :adventure-mode {:key :f}          ; navigation    arrows, tab, enter, page down/up
              ;
-             :windows-mode {:key :w}      ; General shortcuts (browser etc.)
-             :select-mode {:key :s}       ; Selection in all directions, add cursors, cut, copy, paste
-             :delete-mode {:key :d}       ; Deletion left and right (letter, word, line), undo, redo
-             :num-mode {:key :spacebar}   ; number row and symbols
+             :windows-mode   {:key :w}          ; General shortcuts (browser etc.)
+             :select-mode    {:key :s}          ; Selection in all directions, add cursors, cut, copy, paste
+             :delete-mode    {:key :d}          ; Deletion left and right (letter, word, line), undo, redo
+             :num-mode       {:key :spacebar}   ; number row and symbols
              ;
-             :r-mode {:key :r}            ; Slashes and lines  ^ | \ _ @
-             :q-mode {:key :q}            ; Volume and brightness
+             :r-mode         {:key :r}          ; Slashes and lines  ^ | \ _ @
+             :q-mode         {:key :q}          ; Volume and brightness
              }
 
  :main [
