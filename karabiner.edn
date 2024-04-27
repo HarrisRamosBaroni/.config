@@ -31,7 +31,7 @@
              :windows-mode   {:key :w}          ; General shortcuts (browser etc.)
              :select-mode    {:key :s}          ; Selection in all directions, add cursors, cut, copy, paste
              :delete-mode    {:key :d}          ; Deletion left and right (letter, word, line), undo, redo
-             :num-mode       {:key :g}          ; number row and symbols
+             :num-mode       {:key :c}          ; number row and symbols
              ;
              :r-mode         {:key :r}          ; Slashes and lines  ^ | \ _ @
              :q-mode         {:key :q}          ; Volume and brightness

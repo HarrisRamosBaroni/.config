@@ -4797,7 +4797,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "m"
             } ],
@@ -4842,7 +4842,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "comma"
             } ],
@@ -4887,7 +4887,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "period"
             } ],
@@ -4932,7 +4932,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "slash"
             } ],
@@ -4977,7 +4977,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "j"
             } ],
@@ -5022,7 +5022,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "k"
             } ],
@@ -5067,7 +5067,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "l"
             } ],
@@ -5112,7 +5112,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "semicolon"
             } ],
@@ -5157,7 +5157,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "i"
             } ],
@@ -5202,7 +5202,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "o"
             } ],
@@ -5247,7 +5247,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "u"
             } ],
@@ -5292,7 +5292,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "n"
             } ],
@@ -5337,7 +5337,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "g"
+              "key_code" : "c"
             }, {
               "key_code" : "h"
             } ],
