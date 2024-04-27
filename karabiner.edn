@@ -31,7 +31,7 @@
              :windows-mode   {:key :w}          ; General shortcuts (browser etc.)
              :select-mode    {:key :s}          ; Selection in all directions, add cursors, cut, copy, paste
              :delete-mode    {:key :d}          ; Deletion left and right (letter, word, line), undo, redo
-             :num-mode       {:key :spacebar}   ; number row and symbols
+             :num-mode       {:key :g}          ; number row and symbols
              ;
              :r-mode         {:key :r}          ; Slashes and lines  ^ | \ _ @
              :q-mode         {:key :q}          ; Volume and brightness
@@ -244,7 +244,7 @@
                   [:##period "/usr/local/bin/yabai -m window --opacity 0.0"]     ; .  ->  yabai make window 100% opacity and automatically managed
                 ]}
 
-        {:des "num-mode for numbers on home row, and symbols"
+        #_{:des "num-mode for numbers on home row, and symbols"
          :rules [:num-mode
                   [:a :1]
                   [:s :2]
@@ -262,6 +262,23 @@
                   [:m :delete_or_backspace]
                 ]}
 
+        {:des "num-mode for numbers on home row, and symbols"
+         :rules [:num-mode
+                  [:m         :1                  ]
+                  [:comma     :2                  ]
+                  [:period    :3                  ]
+                  [:slash     :4                  ]
+                  [:j         :5                  ]
+                  [:k         :6                  ]
+                  [:l         :7                  ]
+                  [:semicolon :8                  ]
+                  [:i         :0                  ]
+                  [:o         :9                  ]
+                  [:u         :period             ]
+                  [:n         :return_or_enter    ]
+                  [:h         :delete_or_backspace]
+                ]}
+                
         {:des "r-mode for remaining symbols ^ | \\ _ @"
          :rules [:r-mode
                  [:##u :!S6]
