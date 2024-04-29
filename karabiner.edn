@@ -133,21 +133,20 @@
                  [:##slash     :!S7]               ; f -> /        &
                 ]}
 
-        {:des "equations-mode for arithmetic"           ;;    < > ^ #    _ - + =     * / %
+        {:des "equations-mode for arithmetic"           ;;    < > ^    _ - + =     * % #
          :rules [:equations-mode
                   [:##u     :!Scomma]               ; u  ->  <
                   [:##i     :!Speriod]              ; i  ->  >
                   [:##o     :!S6]                   ; o  ->  ^
-                  [:##p     :!O3]                   ; ;  ->  #
 
                   [:##j         :!Shyphen]          ; j  ->  _
                   [:##k         :hyphen]            ; k  ->  -
                   [:##l         :!Sequal_sign]      ; l  ->  +
                   [:##semicolon :equal_sign]        ; ;  ->  =
 
-                  [:##m :!S8]                       ; m  ->  *
-                  [:##comma :slash]                 ; ,  ->  /
-                  [:##period :!S5]                  ; .  ->  %
+                  [:##m      :!S8]                  ; m  ->  *
+                  [:##comma  :!S5]                  ; .  ->  %
+                  [:##period :!O3]                  ; ;  ->  #
                 ]}
 
         {:des "delete-mode for deleting characters with ui, words with jk and lines with hl"
