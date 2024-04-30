@@ -1,0 +1,254 @@
+;; Home row mods QWERTY example with more complexity.
+;; Some of the changes from the basic example:
+;; - when a home row mod activates tap, the home row mods are disabled
+;;   while continuing to type rapidly
+;; - tap-hold-release helps make the hold action more responsive
+;; - pressing another key on the same half of the keyboard
+;;   as the home row mod will activate an early tap action
+
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd yes ;; enable kanata to run shell commands
+
+  ;; By default, kanata will log layer changes.
+  ;; However, logging has some processing overhead.
+  ;; If you do not care for the logging, you can choose to disable it.
+  log-layer-changes no 
+)
+(defsrc
+   q     w     e     r     t     y     u     i     o     p
+    a     s     d     f     g     h     j     k     l     ;
+ grv   z     x     c     v     b     n     m     ,     .     /
+                             spc
+)
+
+(defvar
+  ;; Note: consider using different time values for your different fingers.
+  ;; For example, your pinkies might be slower to release keys and index
+  ;; fingers faster.
+  tap-time 0
+  hold-time 150
+
+  left-hand-keys (
+    w     l     y     p     k
+     c     r     s     t     b
+  grv   j     v     d     g     q
+  )
+  right-hand-keys (
+    z     x     o     u     ;
+     f     n     e     i     a
+        m     h     /     ,     .
+  )
+)
+
+(deflayer canary
+   @w    @l    @y    @p    k     z     x     o     u     ;
+    @c    @r    @s    @t    @b    @f    @n    @e    @i    @a
+ @grv  j     v     d     g     q     m     h     /     ,     @.
+                              spc
+)
+ 
+(deflayer canarynomods
+   w     l     y     p     k     z     x     o     u     ;
+    c     r     s     t     b     f     n     e     i     a
+ grv   j     v     d     g     q     m     h     /     ,     .
+                              spc
+)
+ 
+(deflayer equations
+   _     _     _     _     _     _     @<    @>    @^    _
+    _     _     _     _     _     _     @_    -     +     =
+ _     _     _     _     _     _     _     @*    @%    @#    _
+                               _
+)
+ 
+(deflayer remaining
+   _     _     _     _     _     _     @^    _     _     _
+    _     _     _     _     _     _     @|    @@    _     _
+ _     _     _     _     _     _     _     \     @_    _     _
+                               _
+)
+ 
+(deflayer arrest
+   _     _     _     _     _     _     @{    @}    @!    \
+    _     _     _     _     _     _     @opar @cpar '     @spch
+ _     _     _     _     _     _     _     [     ]     @$    @&
+                               _
+)
+ 
+(deflayer numbers
+   _     _     _     _     _     _     .     0     9     _              
+    _     _     _     _     _     bspc  5     6     7     8         
+ _     _     _     _     _     _     ret   1     2     3     4 
+                               _
+)
+ 
+(deflayer find
+   _     _     _     _     _     pgup  M-lft M-rght tab   S-tab          
+    _     _     _     _     _     pgdn  A-lft A-rght lft   rght
+ _     _     _     _     _     _     ret   down  up    A-down  A-up
+                               _
+)
+ 
+(deflayer delete
+   _     _     _     _     _     _     M-bspc M-del _     _
+    _     _     _     _     _     M-S-z  A-bspc A-del bspc  del
+ _     _     _     _     _     _     M-z   _     _     _     _
+                               _
+)
+ 
+(deflayer select
+   _     _     _     _     _     A-M-up   S-M-lft   S-M-rght   S-down  S-up
+    _     _     _     _     _     A-M-down   S-A-lft   S-A-rght   S-lft     S-rght
+ _     _     _     _     _     _        M-x       M-c        M-v         _         _ 
+                               _
+)
+ 
+(deflayer media
+   _     _     _     _     _     _     _      _     _      _
+    _     _     _     _     _     volu  voldwn brup  brdown _
+ _     _     _     _     _     _     _     _      _     _      _
+                               _
+)
+ 
+(deflayer windows
+   _     _     _     _     _     @spcdes @spcl @spcr @rayc _     
+    _     _     _     _     _     @spcnew @tabl @tabr @app  @win    
+ _     _     _     _     _     _     @nxtspc @flot @opct _     _
+                               _
+)
+
+(deffakekeys
+  to-base (layer-switch canary)
+)
+
+(defchords escape 20
+  (1  ) (tap-hold-release $tap-time $hold-time (multi l @tap) (layer-while-held windows))
+  (  2) (tap-hold-release $tap-time $hold-time (multi y @tap) (layer-while-held equations))
+  (1 2) esc
+)
+
+(defchords lmod 20
+  (1        ) b
+  (  2      ) (tap-hold-release $tap-time $hold-time (multi t @tap) (layer-while-held find)) 
+  (    3    ) (tap-hold-release $tap-time $hold-time (multi s @tap) (layer-while-held delete))
+  (      4  ) (tap-hold-release $tap-time $hold-time (multi r @tap) (layer-while-held select))
+  (        5) (tap-hold-release $tap-time $hold-time (multi c @tap) (layer-while-held arrest))
+
+  (    3 4  ) lmet
+  (  2 3    ) lalt
+  (      4 5) lctl
+  
+  (  2   4  ) (multi lmet lsft)
+  (  2     5) (multi lmet lalt)
+  (    3   5) (multi lmet lctl)
+
+  (1   3    ) (multi lsft lalt)
+  (1     4  ) (multi lsft lctl)
+  (1       5) (multi lalt lctl)
+
+  ;;(1 2      ) (multi lctl lalt)
+)
+
+(defchords rmod 20
+  (1        ) f
+  (  2      ) n
+  (    3    ) e
+  (      4  ) i
+  (        5) a
+
+  (    3 4  ) rmet
+  (  2 3    ) ralt
+  (      4 5) rctl
+  
+  (  2   4  ) (multi rmet rsft)
+  (  2     5) (multi rmet ralt)
+  (    3   5) (multi rmet rctl)
+
+  (1   3    ) (multi rsft ralt)
+  (1     4  ) (multi rsft rctl)
+  (1       5) (multi ralt rctl)
+)
+
+(defalias
+  ;; keys  
+  { S-[
+  } S-]
+  ! S-1
+  @ S-2
+  # A-3
+  $ S-4
+  % S-5
+  ^ S-6
+  & S-7
+  * S-8
+  opar S-9
+  cpar S-0
+  spch S-'
+  < S-,
+  > S-.
+  _ S--
+  | S-\
+)
+
+(defalias
+  ;; yabai and other commands
+  spcdes (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --destroy")          
+  spcnew (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --create")   
+  spcl   (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --focus prev")    
+  spcr   (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --focus next")    
+  rayc   (cmd open -a Raycast)
+  tabl   M-S-[
+  tabr   M-S-]     
+  app    M-tab ;; make into macro to work properly!     
+  win    M-grv ;; make into macro to work properly!      
+  nxtspc (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --space next") 
+  flot   (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --toggle float")  
+  opct   (tap-dance 300 (
+    ;;XX
+    (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --opacity 0.9") ;; yabai set window opacity to 90% 
+    (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --opacity 0.7") ;; yabai set window opacity to 70%
+    (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --opacity 0.0") ;; yabai set window opacity to 100% and restore management
+  ))
+)
+
+(defalias
+  tap (multi      
+    (layer-switch canarynomods)
+    (on-idle-fakekey to-base tap 20)
+  )
+
+  ;; modifier keys
+  f (chord rmod 1)
+  n (chord rmod 2)
+  e (chord rmod 3)
+  i (chord rmod 4)
+  a (chord rmod 5)
+  grv (tap-hold-release $tap-time $hold-time grv lsft)
+  ;;j   (tap-hold-release $tap-time $hold-time j   lctl)
+  ;;v   (tap-hold-release $tap-time $hold-timv v   lalt)
+  ;;d   (tap-hold-release $tap-time $hold-time d   lmet)
+  ;;h   (tap-hold-release $tap-time $hold-time h   rmet)
+  ;;/   (tap-hold-release $tap-time $hold-time /   ralt)
+  ;;,   (tap-hold-release $tap-time $hold-time ,   rctl)
+  .   (tap-hold-release $tap-time $hold-time .   rsft)
+
+  ;; characters and symbols
+  ;; manipulations, media, navigation...
+  l (chord escape 1)
+  y (chord escape 2)
+  p (tap-hold-release $tap-time $hold-time (multi p @tap) (layer-while-held remaining)) 
+  d (tap-hold-release $tap-time $hold-time (multi d @tap) (layer-while-held numbers))
+  w (tap-hold-release $tap-time $hold-time (multi w @tap) (layer-while-held media))
+
+  b (chord lmod 1) 
+  t (chord lmod 2) 
+  s (chord lmod 3) 
+  r (chord lmod 4)
+  c (chord lmod 5)
+)
+
+;; tap-hold-release-keys:
+;; This variant of tap-hold takes a 5th parameter which is a list of keys that trigger
+;; an early tap when they are pressed while the tap-hold-release-keys action is waiting.
+;; Otherwise this behaves as tap-hold-release.
