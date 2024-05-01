@@ -105,8 +105,8 @@
 )
  
 (deflayer media
-   _     _     _     _     _     _     _      _     _      _
-    _     _     _     _     _     volu  voldwn brup  brdown _
+   _     _     _     _     _     _     _       _     _       _
+    _     _     _     _     _     _     voldwn  volu  brdown  brup
  _     _     _     _     _     _     _     _      _     _      _
                                _
 )
