@@ -44,7 +44,7 @@
 (deflayer canary
    @w    @l    @y    @p    k     z     x     o     u     ;
     @c    @r    @s    @t    @b    @f    @n    @e    @i    @a
- @grv  j     v     d     g     q     m     h     /     ,     @.
+ @grv  j     v     @d    g     q     m     h     /     ,     @.
                               spc
 )
  
@@ -98,9 +98,9 @@
 )
  
 (deflayer select
-   _     _     _     _     _     A-M-up   S-M-lft   S-M-rght   S-down  S-up
+   _     _     _     _     _     A-M-up   @lynk     @rynk   S-down  S-up
     _     _     _     _     _     A-M-down   S-A-lft   S-A-rght   S-lft     S-rght
- _     _     _     _     _     _        M-x       M-c        M-v         _         _ 
+ _     _     _     _     _     _        M-x       @ykln        M-v         _         _ 
                                _
 )
  
@@ -170,8 +170,7 @@
   (1       5) (multi ralt rctl)
 )
 
-(defalias
-  ;; keys  
+(defalias ;; keys  
   { S-[
   } S-]
   ! S-1
@@ -191,8 +190,25 @@
   | S-\
 )
 
-(defalias
-  ;; yabai and other commands
+(defalias ;; tap-dances
+  lynk (tap-dance-eager 200 (
+    S-M-lft 
+    (macro M-c rght)
+    M-x
+  ))
+  rynk (tap-dance-eager 200 (
+    S-M-rght 
+    (macro M-c lft)
+    M-x
+  ))
+  ykln (tap-dance 200 (
+    (macro M-c lft)
+    (macro M-lft S-M-rght 100 M-c lft)
+    (macro M-lft S-M-rght 100 M-x)
+  ))
+)
+
+(defalias ;; yabai and other commands
   spcdes (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --destroy")          
   spcnew (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --create")   
   spcl   (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --focus prev")    
@@ -200,8 +216,8 @@
   rayc   (cmd open -a Raycast)
   tabl   M-S-[
   tabr   M-S-]     
-  app    M-tab ;; make into macro to work properly!     
-  win    M-grv ;; make into macro to work properly!      
+  app    (macro M-tab) ;; TODO: fix this 
+  win    (macro M-grv) 
   nxtspc (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --space next") 
   flot   (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --toggle float")  
   opct   (tap-dance 300 (
@@ -212,7 +228,7 @@
   ))
 )
 
-(defalias
+(defalias ;; layers
   tap (multi      
     (layer-switch canarynomods)
     (on-idle-fakekey to-base tap 20)
