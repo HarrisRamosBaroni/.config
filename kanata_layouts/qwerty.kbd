@@ -99,8 +99,8 @@
  
 (deflayer select
    _     _     _     _     _     A-M-up   @Lynk     @Rynk      @dynk      @uynk
-    _     _     _     _     _     A-M-down   @lynk     @rynk   S-lft     S-rght
- _     _     _     _     _     _        M-x       @ykln        M-v         _         _ 
+    _     _     _     _     _     A-M-down   (chord select_chord 1) (chord select_chord 2)   S-lft     S-rght
+ _     _     _     _     _     _        M-x       @ykln        M-v         @Ynk         _ 
                                _
 )
  
@@ -170,6 +170,26 @@
   (1       5) (multi ralt rctl)
 )
 
+(defchords select_chord 20
+  ;;(1        ) f
+  (1        ) @lynk
+  (  2      ) @rynk
+  ;;(      4  ) i
+  ;;(        5) a
+
+  ;;(    3 4  ) rmet
+  (1  2     ) @Ynk
+  ;;(      4 5) rctl
+  ;;
+  ;;(  2   4  ) (multi rmet rsft)
+  ;;(  2     5) (multi rmet ralt)
+  ;;(    3   5) (multi rmet rctl)
+
+  ;;(1   3    ) (multi rsft ralt)
+  ;;(1     4  ) (multi rsft rctl)
+  ;;(1       5) (multi ralt rctl)
+)
+
 (defalias ;; keys  
   { S-[
   } S-]
@@ -191,6 +211,11 @@
 )
 
 (defalias ;; tap-dances
+  Ynk (tap-dance 200 (
+    (macro C-S-M-rght)
+    (macro C-S-M-rght 100 M-c lft)
+    (macro C-S-M-rght 100 M-x)
+  ))
   Lynk (tap-dance 200 (
     (macro S-M-lft)
     (macro S-M-lft 100 M-c rght)
