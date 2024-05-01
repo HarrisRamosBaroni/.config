@@ -98,8 +98,8 @@
 )
  
 (deflayer select
-   _     _     _     _     _     A-M-up   @lynk     @rynk   S-down  S-up
-    _     _     _     _     _     A-M-down   S-A-lft   S-A-rght   S-lft     S-rght
+   _     _     _     _     _     A-M-up   @Lynk     @Rynk      @dynk      @uynk
+    _     _     _     _     _     A-M-down   @lynk     @rynk   S-lft     S-rght
  _     _     _     _     _     _        M-x       @ykln        M-v         _         _ 
                                _
 )
@@ -191,16 +191,48 @@
 )
 
 (defalias ;; tap-dances
-  lynk (tap-dance-eager 200 (
-    S-M-lft 
-    (macro M-c rght)
-    M-x
+  ;;Lynk (tap-dance-eager 200 (
+  ;;  S-M-lft 
+  ;;  (macro M-c rght)
+  ;;  M-x
+  ;;))
+  ;;Rynk (tap-dance-eager 200 (
+  ;;  S-M-rght
+  ;;  (macro M-c lft)
+  ;;  M-x
+  ;;))
+  Lynk (tap-dance 200 (
+    (macro S-M-lft)
+    (macro S-M-lft 100 M-c rght)
+    (macro S-M-lft 100 M-x)
   ))
-  rynk (tap-dance-eager 200 (
-    S-M-rght 
-    (macro M-c lft)
-    M-x
+  Rynk (tap-dance 200 (
+    (macro S-M-rght)
+    (macro S-M-rght 100 M-c lft)
+    (macro S-M-rght 100 M-x)
   ))
+  lynk (tap-dance 150 (
+    S-A-lft
+    (macro S-A-lft 100 M-c rght)
+    (macro S-A-lft 100 M-x)
+  ))
+  rynk (tap-dance 150 (
+    S-A-rght
+    (macro S-A-rght 100 M-c lft)
+    (macro S-A-rght 100 M-x)
+  ))
+  dynk (tap-dance 200 (
+    S-down
+    (macro S-down 100 M-c lft)
+    (macro S-down 100 M-x)
+  ))
+  uynk (tap-dance 200 (
+    S-up
+    (macro S-up 100 M-c rght)
+    (macro S-up 100 M-x)
+  ))
+  ;;dynk S-down
+  ;;uynk S-up
   ykln (tap-dance 200 (
     (macro M-c lft)
     (macro M-lft S-M-rght 100 M-c lft)
