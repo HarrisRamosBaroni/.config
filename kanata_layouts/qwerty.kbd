@@ -41,14 +41,14 @@
   )
 )
 
-(deflayer canary
+(deflayer qwerty ;; The quick brown fox jumps over the lazy dog.
    @w    @l    @y    @p    t     y     u     i     o     p
     @c    @r    @s    @t    @b    @f    @n    @e    @i    @a
- @grv  z     x     c     v     b     n     m     ,     @.    /
+ @grv  z     x     c     v     b     n     m     ,     .     @/
                               spc
 )
  
-(deflayer canarynomods
+(deflayer qwertynomods
    q     w     e     r     t     y     u     i     o     p
     a     s     d     f     g     h     j     k     l     ;
  grv   z     x     c     v     b     n     m     ,     .     /
@@ -119,7 +119,7 @@
 )
 
 (deffakekeys
-  to-base (layer-switch canary)
+  to-base (layer-switch qwerty)
 )
 
 (defchords escape 20
@@ -214,7 +214,7 @@
 
 (defalias
   tap (multi      
-    (layer-switch canarynomods)
+    (layer-switch qwertynomods)
     (on-idle-fakekey to-base tap 20)
   )
 
@@ -231,7 +231,7 @@
   ;;h   (tap-hold-release $tap-time $hold-time h   rmet)
   ;;/   (tap-hold-release $tap-time $hold-time /   ralt)
   ;;,   (tap-hold-release $tap-time $hold-time ,   rctl)
-  .   (tap-hold-release $tap-time $hold-time .   rsft)
+  /   (tap-hold-release $tap-time $hold-time /   rsft)
 
   ;; characters and symbols
   ;; manipulations, media, navigation...
