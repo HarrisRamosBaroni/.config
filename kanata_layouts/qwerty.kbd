@@ -44,10 +44,10 @@
 (deflayer qwerty ;; The quick brown fox jumps over the lazy dog.
    @w    @l    @y    @p    t     y     u     i     o     p
     @c    @r    @s    @t    @b    @f    @n    @e    @i    @a
- @grv  z     x     @d     v     b     n     m     ,     .     @/
+ @grv  z     x     c     @d    b     n     m     ,     .     @/
                               spc
 )
- 
+
 (deflayer qwertynomods
    q     w     e     r     t     y     u     i     o     p
     a     s     d     f     g     h     j     k     l     ;
@@ -211,17 +211,17 @@
 )
 
 (defalias ;; tap-dances
-  Ynk (tap-dance 200 (
+  Ynk (tap-dance 150 (
     (macro C-S-M-rght)
     (macro C-S-M-rght 100 M-c lft)
     (macro C-S-M-rght 100 M-x)
   ))
-  Lynk (tap-dance 200 (
+  Lynk (tap-dance 150 (
     (macro S-M-lft)
     (macro S-M-lft 100 M-c rght)
     (macro S-M-lft 100 M-x)
   ))
-  Rynk (tap-dance 200 (
+  Rynk (tap-dance 150 (
     (macro S-M-rght)
     (macro S-M-rght 100 M-c lft)
     (macro S-M-rght 100 M-x)
@@ -236,17 +236,17 @@
     (macro S-A-rght 100 M-c lft)
     (macro S-A-rght 100 M-x)
   ))
-  dynk (tap-dance 200 (
+  dynk (tap-dance 150 (
     S-down
     (macro S-down 100 M-c lft)
     (macro S-down 100 M-x)
   ))
-  uynk (tap-dance 200 (
+  uynk (tap-dance 150 (
     S-up
     (macro S-up 100 M-c rght)
     (macro S-up 100 M-x)
   ))
-  ykln (tap-dance 200 (
+  ykln (tap-dance 150 (
     (macro M-c lft)
     (macro M-lft S-M-rght 100 M-c lft)
     (macro M-lft S-M-rght 100 M-x)
@@ -302,7 +302,7 @@
   l (chord escape 1)
   y (chord escape 2)
   p (tap-hold-release $tap-time $hold-time (multi r @tap) (layer-while-held remaining)) 
-  d (tap-hold-release $tap-time $hold-time (multi c @tap) (layer-while-held numbers))
+  d (tap-hold-release $tap-time $hold-time (multi v @tap) (layer-while-held numbers))
   w (tap-hold-release $tap-time $hold-time (multi q @tap) (layer-while-held media))
 
   b (chord lmod 1) 

@@ -77,9 +77,9 @@
 )
  
 (deflayer numbers
-   _     _     _     _     _     _     .     0     9     _              
-    _     _     _     _     _     bspc  5     6     7     8         
- _     _     _     _     _     _     ret   1     2     3     4 
+   _     _     _     _     _     _     8     9     0     _              
+    _     _     _     _     _     bspc  4     5     6     .
+ _     _     _     _     _     _     7     1     2     3     _ 
                                _
 )
  
@@ -221,17 +221,17 @@
   ;;  (macro M-c lft)
   ;;  M-x
   ;;))
-  Ynk (tap-dance 200 (
+  Ynk (tap-dance 150 (
     (macro C-S-M-rght)
     (macro C-S-M-rght 100 M-c lft)
     (macro C-S-M-rght 100 M-x)
   ))
-  Lynk (tap-dance 200 (
+  Lynk (tap-dance 150 (
     (macro S-M-lft)
     (macro S-M-lft 100 M-c rght)
     (macro S-M-lft 100 M-x)
   ))
-  Rynk (tap-dance 200 (
+  Rynk (tap-dance 150 (
     (macro S-M-rght)
     (macro S-M-rght 100 M-c lft)
     (macro S-M-rght 100 M-x)
@@ -246,19 +246,19 @@
     (macro S-A-rght 100 M-c lft)
     (macro S-A-rght 100 M-x)
   ))
-  dynk (tap-dance 200 (
+  dynk (tap-dance 150 (
     S-down
     (macro S-down 100 M-c lft)
     (macro S-down 100 M-x)
   ))
-  uynk (tap-dance 200 (
+  uynk (tap-dance 150 (
     S-up
     (macro S-up 100 M-c rght)
     (macro S-up 100 M-x)
   ))
   ;;dynk S-down
   ;;uynk S-up
-  ykln (tap-dance 200 (
+  ykln (tap-dance 150 (
     (macro M-c lft)
     (macro M-lft S-M-rght 100 M-c lft)
     (macro M-lft S-M-rght 100 M-x)
