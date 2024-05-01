@@ -123,17 +123,17 @@
 )
 
 (defchords escape 20
-  (1  ) (tap-hold-release $tap-time $hold-time (multi l @tap) (layer-while-held windows))
-  (  2) (tap-hold-release $tap-time $hold-time (multi y @tap) (layer-while-held equations))
+  (1  ) (tap-hold-release $tap-time $hold-time (multi w @tap) (layer-while-held windows))
+  (  2) (tap-hold-release $tap-time $hold-time (multi e @tap) (layer-while-held equations))
   (1 2) esc
 )
 
 (defchords lmod 20
-  (1        ) b
-  (  2      ) (tap-hold-release $tap-time $hold-time (multi t @tap) (layer-while-held find)) 
-  (    3    ) (tap-hold-release $tap-time $hold-time (multi s @tap) (layer-while-held delete))
-  (      4  ) (tap-hold-release $tap-time $hold-time (multi r @tap) (layer-while-held select))
-  (        5) (tap-hold-release $tap-time $hold-time (multi c @tap) (layer-while-held arrest))
+  (1        ) g
+  (  2      ) (tap-hold-release $tap-time $hold-time (multi f @tap) (layer-while-held find)) 
+  (    3    ) (tap-hold-release $tap-time $hold-time (multi d @tap) (layer-while-held delete))
+  (      4  ) (tap-hold-release $tap-time $hold-time (multi s @tap) (layer-while-held select))
+  (        5) (tap-hold-release $tap-time $hold-time (multi a @tap) (layer-while-held arrest))
 
   (    3 4  ) lmet
   (  2 3    ) lalt
@@ -151,11 +151,11 @@
 )
 
 (defchords rmod 20
-  (1        ) f
-  (  2      ) n
-  (    3    ) e
-  (      4  ) i
-  (        5) a
+  (1        ) h
+  (  2      ) j
+  (    3    ) k
+  (      4  ) l
+  (        5) ;
 
   (    3 4  ) rmet
   (  2 3    ) ralt
@@ -237,9 +237,9 @@
   ;; manipulations, media, navigation...
   l (chord escape 1)
   y (chord escape 2)
-  p (tap-hold-release $tap-time $hold-time (multi p @tap) (layer-while-held remaining)) 
-  d (tap-hold-release $tap-time $hold-time (multi d @tap) (layer-while-held numbers))
-  w (tap-hold-release $tap-time $hold-time (multi w @tap) (layer-while-held media))
+  p (tap-hold-release $tap-time $hold-time (multi r @tap) (layer-while-held remaining)) 
+  d (tap-hold-release $tap-time $hold-time (multi c @tap) (layer-while-held numbers))
+  w (tap-hold-release $tap-time $hold-time (multi q @tap) (layer-while-held media))
 
   b (chord lmod 1) 
   t (chord lmod 2) 
