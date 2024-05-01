@@ -44,7 +44,7 @@
 (deflayer qwerty ;; The quick brown fox jumps over the lazy dog.
    @w    @l    @y    @p    t     y     u     i     o     p
     @c    @r    @s    @t    @b    @f    @n    @e    @i    @a
- @grv  z     x     c     v     b     n     m     ,     .     @/
+ @grv  z     x     @d     v     b     n     m     ,     .     @/
                               spc
 )
  
@@ -238,7 +238,10 @@
   tabr   M-S-]     
   app    M-tab ;; make into macro to work properly!     
   win    M-grv ;; make into macro to work properly!      
-  nxtspc (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --space next") 
+  nxtspc (tap-dance 200 (
+    (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --space next")
+    (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --space prev")
+  ))
   flot   (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --toggle float")  
   opct   (tap-dance 300 (
     ;;XX

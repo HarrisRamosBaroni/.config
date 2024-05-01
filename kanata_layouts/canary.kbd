@@ -250,7 +250,10 @@
   tabr   M-S-]     
   app    (macro M-tab) ;; TODO: fix this 
   win    (macro M-grv) 
-  nxtspc (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --space next") 
+  nxtspc (tap-dance 200 (
+    (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --space next")
+    (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --space prev")
+  ))
   flot   (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m window --toggle float")  
   opct   (tap-dance 300 (
     ;;XX
