@@ -98,9 +98,9 @@
 )
  
 (deflayer select
-   _     _     _     _     _     A-M-up   S-M-lft   S-M-rght   S-down  S-up
-    _     _     _     _     _     A-M-down   S-A-lft   S-A-rght   S-lft     S-rght
- _     _     _     _     _     _        M-x       M-c        M-v         _         _ 
+   _     _     _     _     _     A-M-up   @Lynk     @Rynk      @dynk      @uynk
+    _     _     _     _     _     A-M-down   @lynk     @rynk   S-lft     S-rght
+ _     _     _     _     _     _        M-x       @ykln        M-v         _         _ 
                                _
 )
  
@@ -170,8 +170,7 @@
   (1       5) (multi ralt rctl)
 )
 
-(defalias
-  ;; keys  
+(defalias ;; keys  
   { S-[
   } S-]
   ! S-1
@@ -191,8 +190,45 @@
   | S-\
 )
 
-(defalias
-  ;; yabai and other commands
+(defalias ;; tap-dances
+  Lynk (tap-dance 200 (
+    (macro S-M-lft)
+    (macro S-M-lft 100 M-c rght)
+    (macro S-M-lft 100 M-x)
+  ))
+  Rynk (tap-dance 200 (
+    (macro S-M-rght)
+    (macro S-M-rght 100 M-c lft)
+    (macro S-M-rght 100 M-x)
+  ))
+  lynk (tap-dance 150 (
+    S-A-lft
+    (macro S-A-lft 100 M-c rght)
+    (macro S-A-lft 100 M-x)
+  ))
+  rynk (tap-dance 150 (
+    S-A-rght
+    (macro S-A-rght 100 M-c lft)
+    (macro S-A-rght 100 M-x)
+  ))
+  dynk (tap-dance 200 (
+    S-down
+    (macro S-down 100 M-c lft)
+    (macro S-down 100 M-x)
+  ))
+  uynk (tap-dance 200 (
+    S-up
+    (macro S-up 100 M-c rght)
+    (macro S-up 100 M-x)
+  ))
+  ykln (tap-dance 200 (
+    (macro M-c lft)
+    (macro M-lft S-M-rght 100 M-c lft)
+    (macro M-lft S-M-rght 100 M-x)
+  ))
+)
+
+(defalias ;; yabai and other commands
   spcdes (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --destroy")          
   spcnew (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --create")   
   spcl   (cmd sudo -u harris zsh -c "/usr/local/bin/yabai -m space --focus prev")    
@@ -212,7 +248,7 @@
   ))
 )
 
-(defalias
+(defalias ;; layers
   tap (multi      
     (layer-switch qwertynomods)
     (on-idle-fakekey to-base tap 20)
