@@ -300,14 +300,14 @@
   e (chord rmod 3)
   i (chord rmod 4)
   a (chord rmod 5)
-  grv (tap-hold-release $tap-time $hold-time grv lsft)
+  grv (tap-hold-press $tap-time $hold-time grv lsft)
   ;;j   (tap-hold-release $tap-time $hold-time j   lctl)
   ;;v   (tap-hold-release $tap-time $hold-timv v   lalt)
   ;;d   (tap-hold-release $tap-time $hold-time d   lmet)
   ;;h   (tap-hold-release $tap-time $hold-time h   rmet)
   ;;/   (tap-hold-release $tap-time $hold-time /   ralt)
   ;;,   (tap-hold-release $tap-time $hold-time ,   rctl)
-  .   (tap-hold-release $tap-time $hold-time .   rsft)
+  .   (tap-hold-press $tap-time $hold-time .   rsft)
 
   ;; characters and symbols
   ;; manipulations, media, navigation...
