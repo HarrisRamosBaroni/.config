@@ -44,7 +44,7 @@
 (deflayer qwerty ;; The quick brown fox jumps over the lazy dog.
    @w    @l    @y    @p    t     y     u     i     o     p
     @c    @r    @s    @t    @b    @f    @n    @e    @i    @a
- @grv  z     x     c     @d    b     n     m     ,     .     @/
+ @grv  z     x     @d    v     b     n     m     ,     .     @/
                               spc
 )
 
@@ -302,7 +302,7 @@
   l (chord escape 1)
   y (chord escape 2)
   p (tap-hold-release $tap-time $hold-time (multi r @tap) (layer-while-held remaining)) 
-  d (tap-hold-release $tap-time $hold-time (multi v @tap) (layer-while-held numbers))
+  d (tap-hold-release $tap-time $hold-time (multi c @tap) (layer-while-held numbers))
   w (tap-hold-release $tap-time $hold-time (multi q @tap) (layer-while-held media))
 
   b (chord lmod 1) 
