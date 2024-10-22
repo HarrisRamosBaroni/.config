@@ -1,3 +1,5 @@
 # Ignore folders named "Autodesk" and "fish"
 Autodesk/
 fish/
+nvim/
+**/.DS_Store
