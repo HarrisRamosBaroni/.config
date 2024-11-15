@@ -12,7 +12,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=40 blur_radius=30 color=0x40000000
+sketchybar --bar position=top height=30 blur_radius=6 color=0x7d000000 #0x40000000
 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
@@ -85,7 +85,22 @@ sketchybar --add item clock right \
            --subscribe volume volume_change \
            --add item battery right \
            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change
+           --subscribe battery system_woke power_source_change \
+           --add item layer_indicator right \
+           --set layer_indicator                 \
+    label="Layer"                                \
+    icon.drawing=off                             \
+    width=100                                    \
+    align=center
+#    label.color=0xffc0c0c0
 
+# Starting from --set item layer_indicattor right (which adds an item called 
+# "layer_indicator" to the right side of sketchybar), we set the properties of the item:
+# Initial label
+# Text color
+# Font and size
+# No icon, just text
+# Fixed width to prevent resizing
+# Center-align the label
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
