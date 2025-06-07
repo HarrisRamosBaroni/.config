@@ -13,7 +13,7 @@ after-login-command = []
 after-startup-command = ['layout accordion']
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -106,10 +106,10 @@ automatically-unhide-macos-hidden-apps = false
 #   cmd-slash = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-#   alt-h = 'focus left'
+    alt-cmd-ctrl-h = 'focus left'
 #   alt-j = 'focus down'
 #   alt-k = 'focus up'
-#   alt-l = 'focus right'
+    alt-cmd-ctrl-l = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
 #   alt-shift-h = 'move left'
