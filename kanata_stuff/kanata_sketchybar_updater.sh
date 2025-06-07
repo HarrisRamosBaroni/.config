@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script runs `kanata-tray-macos` and parses its output for layer changes.
 
-sudo kanata-tray-macos | while read -r line; do
+sudo /usr/local/bin/kanata-tray-macos | while read -r line; do
     # Look for lines indicating layer changes
     if [[ "$line" =~ Setting\ icon:\ preset:\*,\ layer:([^[:space:]]+) ]]; then
         # Extract the layer name from the line
