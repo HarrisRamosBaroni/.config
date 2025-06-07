@@ -1,0 +1,173 @@
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd yes ;; enable kanata to run shell commands
+
+  ;; By default, kanata will log layer changes.
+  ;; However, logging has some processing overhead.
+  ;; If you do not care for the logging, you can choose to disable it.
+  log-layer-changes no 
+)
+
+(defsrc
+q     w     e     r     t           y     u     i     o     p
+a     s     d     f     g           h     j     k     l     ;
+\     z     x     c     v     b     n     m     ,     .     /
+                             spc
+)
+
+(defvar
+  ;; Note: consider using different time values for your different fingers.
+  ;; For example, your pinkies might be slower to release keys and index
+  ;; fingers faster.
+  tap-time 0
+  hold-time 180
+  hold-time-slow 250
+)
+
+(deflayer qwerty
+q     @w    @e    r     t           y     u     i     o     p
+@a    @s    @d    @f    g           h     j     k     l     ;
+\     z     x     c     v     b     n     m     ,     .     /
+                             spc
+)
+
+(deflayer qwertynomods
+q     w     e     r     t           y     u     i     o     p
+a     s     d     f     g           h     j     k     l     ;
+\     z     x     c     v     b     n     m     ,     .     /
+                             spc
+)
+ 
+(deflayer equations
+_     _     _     _     _           _     @<    @>    @^    _
+_     _     _     _     _           _     @_    -     +     =
+_     _     _     _     _     _     _     @*    @%    @#    _
+                              _
+)
+ 
+(deflayer remaining
+_     _     _     _     _           _     @^    _     _     _
+_     _     _     _     _           _     @|    @@    _     _
+_     _     _     _     _     _     _     \     @_    _     _
+                              _
+)
+ 
+(deflayer arrest
+_     _     _     _     _           _     @{    @}    @!    \
+_     _     _     _     _           _     @opar @cpar '     @spch
+_     _     _     _     _     _     _     [     ]     @$    @&
+                              _
+)
+ 
+(deflayer numbers
+_     _     _     _     _           _     7     8     9     _              
+_     _     _     _     _           bspc  4     5     6     0
+_     _     _     _     _     _     .     1     2     3     _ 
+                              _
+)
+ 
+(deflayer find
+_     _     _     _     _           pgup  home  end    tab   S-tab          
+_     _     _     _     _           pgdn  C-lft C-rght lft   rght
+_     _     _     _     _     _     ret   down  up     _     _
+                              _
+)
+ 
+(deflayer delete
+_     _     _     _     _          _   @dhome @dend _     _
+_     _     _     _     _          _   C-bspc C-del bspc  del
+_     _     _     _     _     _    _   C-z    C-S-z _     _
+                              _
+)
+ 
+(deflayer select
+_     _     _     _     _         _      S-home  S-end    S-down S-up
+_     _     _     _     _         C-S-k  S-C-lft S-C-rght S-lft  S-rght
+_     _     _     _     _     _   C-x    C-c     C-v      _      _                                
+                              _
+)
+ 
+;; (deflayer media
+;;_     _     _     _     _           _     _       _     _       _
+;;_     _     _     _     _           _     voldwn  volu  brdown  brup
+;;_     _     _     _     _     _     _     _      _     _      _
+;;                              _
+;; )
+ 
+(deflayer windows
+_     _     alt   _     _           _    @deskl @deskr _      _
+_     _     _     _     _           _    @tabl  @tabr  @winl  @winr    
+_     _     _     _     _     _     _    @tabop @tabcl _      _
+                              _
+)
+
+(deflayer edit
+_     _     _     _     _           _       _       _        _      _
+_     _     _     _     _           @qkopen @cmdplt @sidebar @godef _
+_     _     _     _     _     _     _       @cmnt   @bpanel  _      _
+                              _
+)
+
+(defalias ;; keys  
+  { S-[
+  } S-]
+  ! S-1
+  @ S-2
+  # A-3
+  $ S-4
+  % S-5
+  ^ S-6
+  & S-7
+  * S-8
+  opar S-9
+  cpar S-0
+  spch S-'
+  < S-,
+  > S-.
+  _ S--
+  | S-\
+)
+
+(defalias
+  dhome (macro S-home bspc)
+  dend (macro S-end bspc)
+)
+
+(defalias ;; editing shortcuts
+  cmnt (macro C-/)      ;; comment code
+
+  ;; VSCode shortcuts
+  cmdplt (macro C-S-p)  ;; open command palatte
+  qkopen (macro C-p)    ;; quick open files
+  godef (macro f12)     ;; go to definition
+  sidebar (macro C-b)   ;; toggle side bar
+  bpanel (macro C-j)    ;; toggle bottom panel
+)
+
+;; (deftemplate window-shortcut (shortcut-name output-action)
+;;   (defalias $shortcut-name (multi (release-key alt) $output-action))
+;; )
+;; (t! window-shortcut tabl C-S-tab)
+
+(defalias ;; windows management shortcuts
+  deskl (macro M-C-left)  ;; go left one desktop
+  deskr (macro M-C-right) ;; go right one desktop
+  tabl (macro C-S-tab)  ;; go left one tab
+  tabr (macro C-tab)    ;; go right one tab
+  tabop (tap-hold $tap-time $hold-time (macro C-t) (macro C-S-t)) ;; new tab; restore tab
+  tabcl (tap-hold $tap-time $hold-time (macro M-w) (macro M-S-w)) ;; close tab; close all tabs
+  ;; tabop (macro C-t)  ;; open new tab
+  ;; tabcl (macro C-w)  ;; close tab
+  winl (macro S-tab) ;; left cycle through windows (press alt)
+  winr (macro tab)   ;; right cycle through windows (press alt)
+)
+
+(defalias ;; layers
+  a (tap-hold-release $tap-time $hold-time-slow a (layer-while-held arrest))
+  s (tap-hold-release $tap-time $hold-time s (layer-while-held select))
+  d (tap-hold-release $tap-time $hold-time d (layer-while-held delete))
+  f (tap-hold-release $tap-time $hold-time f (layer-while-held find))
+  ;; q (tap-hold-release $tap-time $hold-time q (layer-while-held media))
+  w (tap-hold-release $tap-time $hold-time w (layer-while-held windows))
+  e (tap-hold-release $tap-time $hold-time e (layer-while-held edit))
+)
