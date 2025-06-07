@@ -32,6 +32,9 @@ default-root-container-layout = 'accordion'
 #               tall monitor (anything higher than wide) gets vertical orientation
 default-root-container-orientation = 'horizontal'
 
+# Notify SketchyBar about AeroSpace workspace changes
+exec-on-workspace-change = ['/bin/bash', '/Users/harris/.config/sketchybar/plugins/aerospace_update_workspaces.sh']
+
 # Mouse follows focus when focused monitor changes
 # Drop it from your config, if you don't like this behavior
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
@@ -219,3 +222,4 @@ automatically-unhide-macos-hidden-apps = false
 # [[on-window-detected]]
 #     if.app-name-regex-substring = 'Karabiner-Elements'
 #     run = 'layout floating'
+

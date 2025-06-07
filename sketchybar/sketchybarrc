@@ -38,24 +38,48 @@ sketchybar --default "${default[@]}"
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces.
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
-for i in "${!SPACE_ICONS[@]}"
+# SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+# for i in "${!SPACE_ICONS[@]}"
+# do
+#   sid="$(($i+1))"
+#   space=(
+#     space="$sid"
+#     icon="${SPACE_ICONS[i]}"
+#     icon.padding_left=7
+#     icon.padding_right=7
+#     background.color=0x40ffffff
+#     background.corner_radius=5
+#     background.height=25
+#     label.drawing=off
+#     script="$PLUGIN_DIR/space.sh"
+#     click_script="yabai -m space --focus $sid"
+#   )
+#   sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
+# done
+
+##### Adding AeroSpace Workspace Indicators #####
+AEROSPACE_WORKSPACE_IDS=("1" "2" "3" "4")
+DEFAULT_BG_COLOR="0x40ffffff" # Match your default or desired non-focused bg
+
+for ws_id in "${AEROSPACE_WORKSPACE_IDS[@]}"
 do
-  sid="$(($i+1))"
-  space=(
-    space="$sid"
-    icon="${SPACE_ICONS[i]}"
-    icon.padding_left=7
-    icon.padding_right=7
-    background.color=0x40ffffff
-    background.corner_radius=5
-    background.height=25
-    label.drawing=off
-    script="$PLUGIN_DIR/space.sh"
-    click_script="yabai -m space --focus $sid"
-  )
-  sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
+  sketchybar --add item aerospace_ws_"$ws_id" left \
+             --set aerospace_ws_"$ws_id" \
+                   icon="$ws_id" \
+                   icon.color=0xffffffff \
+                   icon.padding_left=7 \
+                   icon.padding_right=7 \
+                   label.drawing=off \
+                   background.color="$DEFAULT_BG_COLOR" \
+                   background.corner_radius=5 \
+                   background.height=25 \
+                   background.border_width=0 \
+                   click_script="aerospace workspace $ws_id; sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$ws_id"
+                   # The trigger on click_script ensures immediate visual feedback if the main script relies on events
 done
+
+# Initial call to set the state when sketchybarrc is loaded
+"$CONFIG_DIR/plugins/aerospace_update_workspaces.sh"
 
 ##### Adding Left Items #####
 # We add some regular items to the left side of the bar, where
